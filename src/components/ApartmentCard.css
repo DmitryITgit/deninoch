@@ -1,78 +1,135 @@
 .apartment-card {
-  width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  padding: 15px;
-}
 
-.apartment-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
+  width:100%;
 
-.apartment-card button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #111;
-  color: white;
-  cursor: pointer;
-}
+  box-sizing:border-box;
 
-.apartment-card {
-  display: block;
+  padding:15px;
 
-  width: 320px;
+  border-radius:15px;
 
-  padding: 20px;
+  background:white;
 
-  border-radius: 20px;
+  border:1px solid #ddd;
 
-  background: white;
+  text-decoration:none;
 
-  border: 1px solid #eeeeee;
+  color:inherit;
 
-  text-decoration: none;
-  color: inherit;
+  transition:0.3s;
 
-  transition: 0.3s;
+  cursor:pointer;
 
-  cursor: pointer;
 }
 
 .apartment-card:hover {
-  transform: translateY(-5px);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transform:translateY(-5px);
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
 }
 
 .apartment-card img {
-  width: 100%;
-  height: 220px;
 
-  object-fit: cover;
+  width:100%;
 
-  border-radius: 15px;
+  height:220px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+
+  display:block;
+
 }
 
 .apartment-card h3 {
-  margin-top: 15px;
-  font-size: 22px;
+
+  margin-top:15px;
+
+  font-size:22px;
+
 }
 
 .apartment-card p {
-  color: #666;
-  line-height: 1.5;
+
+  color:#666;
+
+  line-height:1.5;
+
 }
 
 .apartment-card strong {
-  display: block;
 
-  margin-top: 15px;
+  display:block;
 
-  font-size: 18px;
-  color: #111;
+  margin-top:15px;
+
+  font-size:18px;
+
+  color:#111;
+
+}
+
+.apartment-card button {
+
+  margin-top:15px;
+
+  padding:10px 20px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:#111;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+/* Телефон */
+
+@media(max-width:700px){
+
+  .apartment-card {
+
+    padding:10px;
+
+    border-radius:12px;
+
+  }
+
+  .apartment-card img {
+
+    height:130px;
+
+    border-radius:10px;
+
+  }
+
+  .apartment-card h3 {
+
+    font-size:16px;
+
+    margin-top:10px;
+
+  }
+
+  .apartment-card p {
+
+    font-size:13px;
+
+  }
+
+  .apartment-card strong {
+
+    font-size:15px;
+
+    margin-top:10px;
+
+  }
+
 }
