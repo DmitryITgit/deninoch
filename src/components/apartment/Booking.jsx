@@ -50,7 +50,7 @@ function Booking({ price }) {
 
             <a
 
-              href="tel:+79991234567"
+              href="tel:+79539836853"
 
               className="phone-back"
 
