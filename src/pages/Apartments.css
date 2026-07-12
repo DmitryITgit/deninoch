@@ -1,14 +1,28 @@
 .apartments {
 
-  padding: 50px 80px;
+  padding: 60px 80px;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
 
 }
 
 .apartments h1 {
 
-  font-size: 40px;
+  font-size: 42px;
 
   margin-bottom: 35px;
+
+  font-weight: 600;
+
+}
+
+/* Поиск */
+
+.search-mobile {
+
+  display: none;
 
 }
 
@@ -18,13 +32,13 @@
 
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 30px;
+  gap: 35px;
 
 }
 
-/* Информация о квартире */
+/* Информация */
 
 .apartment-info {
 
@@ -38,57 +52,115 @@
 
 }
 
-/* Планшеты */
+/* Сообщение если ничего нет */
 
-@media(max-width: 900px) {
+.no-result {
+
+  font-size: 18px;
+
+  margin-top: 30px;
+
+}
+
+/* Планшет */
+
+@media(max-width:900px) {
 
   .apartments {
 
-    padding: 40px 30px;
+    padding: 50px 30px;
 
   }
 
   .apartments-list {
 
-    gap: 20px;
+    gap:25px;
 
   }
 
 }
 
-/* Телефоны */
+/* Телефон */
 
-@media(max-width:700px) {
+@media(max-width:700px ){
 
   .apartments {
 
-    padding: 30px 10px;
+    padding: 30px 15px;
 
   }
 
   .apartments h1 {
 
-    font-size: 30px;
+    font-size: 32px;
 
-    margin-bottom: 25px;
+    margin-bottom:20px;
 
   }
 
+  /* Поисковый блок */
+
+  .search-mobile {
+
+    display:block;
+
+    margin-bottom:30px;
+
+  }
+
+  .search-mobile input {
+
+    width:100%;
+
+    height:52px;
+
+    padding:0 20px;
+
+    border-radius:30px;
+
+    border:1px solid #ddd;
+
+    background:white;
+
+    font-size:16px;
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,0.08);
+
+    outline:none;
+
+    box-sizing:border-box;
+
+  }
+
+  .search-mobile input::placeholder {
+
+    color:#999;
+
+  }
+
+  .search-mobile input:focus {
+
+    border-color:#b08b5c;
+
+  }
+
+  /* Квартиры */
+
   .apartments-list {
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:repeat(2, 1fr);
 
-    gap: 12px;
+    gap:15px;
 
   }
 
   .apartment-info {
 
-    font-size: 13px;
+    font-size:13px;
 
-    gap: 8px;
-
-    margin-top: 10px;
+    gap:8px;
 
   }
 
@@ -96,11 +168,11 @@
 
 /* Очень маленькие телефоны */
 
-@media(max-width:380px){
+@media(max-width:380px) {
 
   .apartments-list {
 
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
 
   }
 
