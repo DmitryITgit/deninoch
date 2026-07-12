@@ -4,7 +4,7 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import Apartments from "./pages/Apartments"
 import Apartment from "./pages/Apartment"
-import Contacts from "./pages/Contacts123";
+import Contacts from "./pages/Contacts";
 import ScrollTop from "./components/ScrollTop"
 
 function App() {
