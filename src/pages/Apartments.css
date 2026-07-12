@@ -12,15 +12,23 @@
 
 }
 
-/* Список квартир */
+/* Сетка квартир */
 
 .apartments-list {
 
   display:grid;
 
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
 
   gap:30px;
+
+}
+
+/* Поиск */
+
+.search-mobile {
+
+  display:none;
 
 }
 
@@ -35,14 +43,6 @@
   margin-top:25px;
 
   font-size:18px;
-
-}
-
-/* Поиск */
-
-.search-mobile {
-
-  display:none;
 
 }
 
@@ -61,6 +61,12 @@
   .apartments {
 
     padding:40px 30px;
+
+  }
+
+  .apartments-list {
+
+    gap:20px;
 
   }
 
@@ -90,7 +96,7 @@
 
     display:block;
 
-    margin-bottom:35px;
+    margin-bottom:30px;
 
   }
 
@@ -100,7 +106,9 @@
 
     height:50px;
 
-    padding:0 20px;
+    padding:0 18px;
+
+    box-sizing:border-box;
 
     border-radius:25px;
 
@@ -108,11 +116,11 @@
 
     font-size:16px;
 
-    background:#fff;
+    outline:none;
+
+    background:white;
 
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
-
-    outline:none;
 
   }
 
@@ -122,13 +130,13 @@
 
   }
 
-  /* Карточки */
+  /* Две квартиры в ряд */
 
   .apartments-list {
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2, minmax(0, 1fr));
 
-    gap:15px;
+    gap:12px;
 
   }
 
@@ -144,7 +152,7 @@
 
 }
 
-/* Маленькие телефоны */
+/* Очень маленькие телефоны */
 
 @media(max-width:380px){
 

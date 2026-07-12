@@ -133,3 +133,16 @@
   }
 
 }
+
+.apartment-card {
+
+  min-width:0;
+
+}
+
+.apartment-card h3,
+.apartment-card p {
+
+  overflow-wrap:break-word;
+
+}
