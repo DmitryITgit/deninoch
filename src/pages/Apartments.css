@@ -1,40 +1,26 @@
 .apartments {
 
-  padding: 60px 80px;
-
-  max-width: 1400px;
-
-  margin: 0 auto;
+  padding: 50px 80px;
 
 }
 
 .apartments h1 {
 
-  font-size: 42px;
+  font-size:40px;
 
-  margin-bottom: 35px;
-
-  font-weight: 600;
+  margin-bottom:30px;
 
 }
 
-/* Поиск */
-
-.search-mobile {
-
-  display: none;
-
-}
-
-/* Сетка квартир */
+/* Список квартир */
 
 .apartments-list {
 
-  display: grid;
+  display:grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:repeat(2, 1fr);
 
-  gap: 35px;
+  gap:30px;
 
 }
 
@@ -42,39 +28,39 @@
 
 .apartment-info {
 
-  display: flex;
+  display:flex;
 
-  gap: 15px;
+  gap:20px;
 
-  margin-top: 15px;
+  margin-top:25px;
 
-  font-size: 16px;
+  font-size:18px;
 
 }
 
-/* Сообщение если ничего нет */
+/* Поиск */
+
+.search-mobile {
+
+  display:none;
+
+}
 
 .no-result {
 
-  font-size: 18px;
+  font-size:18px;
 
-  margin-top: 30px;
+  margin-top:20px;
 
 }
 
 /* Планшет */
 
-@media(max-width:900px) {
+@media(max-width:900px){
 
   .apartments {
 
-    padding: 50px 30px;
-
-  }
-
-  .apartments-list {
-
-    gap:25px;
+    padding:40px 30px;
 
   }
 
@@ -82,29 +68,29 @@
 
 /* Телефон */
 
-@media(max-width:700px ){
+@media(max-width:700px){
 
   .apartments {
 
-    padding: 30px 15px;
+    padding:30px 15px;
 
   }
 
   .apartments h1 {
 
-    font-size: 32px;
+    font-size:32px;
 
     margin-bottom:20px;
 
   }
 
-  /* Поисковый блок */
+  /* Поиск */
 
   .search-mobile {
 
     display:block;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
 
   }
 
@@ -112,31 +98,21 @@
 
     width:100%;
 
-    height:52px;
+    height:50px;
 
     padding:0 20px;
 
-    border-radius:30px;
+    border-radius:25px;
 
     border:1px solid #ddd;
 
-    background:white;
-
     font-size:16px;
 
-    box-shadow:
+    background:#fff;
 
-    0 5px 20px rgba(0,0,0,0.08);
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
 
     outline:none;
-
-    box-sizing:border-box;
-
-  }
-
-  .search-mobile input::placeholder {
-
-    color:#999;
 
   }
 
@@ -146,11 +122,11 @@
 
   }
 
-  /* Квартиры */
+  /* Карточки */
 
   .apartments-list {
 
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:15px;
 
@@ -162,13 +138,15 @@
 
     gap:8px;
 
+    margin-top:10px;
+
   }
 
 }
 
-/* Очень маленькие телефоны */
+/* Маленькие телефоны */
 
-@media(max-width:380px) {
+@media(max-width:380px){
 
   .apartments-list {
 
