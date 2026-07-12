@@ -1,8 +1,26 @@
 .hero {
 
-  height:90vh;
+  height: 90vh;
+  min-height: 600px;
 
-  min-height:600px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+
+}
+
+.hero::before {
+
+  content:"";
+
+  position:absolute;
+  inset:0;
 
   background:
     linear-gradient(
@@ -12,22 +30,11 @@
     url("/hero.jpg");
 
   background-size:cover;
-
   background-position:center;
 
-  display:flex;
+  animation: heroZoom 20s ease-in-out infinite alternate;
 
-  align-items:center;
-
-  justify-content:center;
-
-  text-align:center;
-
-  color:white;
-
-  overflow:hidden;
-
-  animation: heroZoom 15s infinite alternate ease-in-out;
+  z-index:0;
 
 }
 
@@ -35,13 +42,13 @@
 
   from {
 
-    background-size:100%;
+    transform:scale(1);
 
   }
 
   to {
 
-    background-size:115%;
+    transform:scale(1.06);
 
   }
 
@@ -53,6 +60,10 @@
 
   padding:20px;
 
+  position:relative;
+
+  z-index:1;
+
   animation: fadeUp 1s ease;
 
 }
@@ -62,7 +73,6 @@
   from {
 
     opacity:0;
-
     transform:translateY(30px);
 
   }
@@ -70,7 +80,6 @@
   to {
 
     opacity:1;
-
     transform:translateY(0);
 
   }
@@ -129,13 +138,10 @@
 
   font-weight:500;
 
-  letter-spacing:.2px;
-
   transition:.35s;
 
   box-shadow:
-
-  0 10px 30px rgba(0,0,0,.25);
+    0 10px 30px rgba(0,0,0,.25);
 
 }
 
@@ -145,23 +151,35 @@
 
   background:#c39b6a;
 
-  box-shadow:
-
-  0 15px 40px rgba(0,0,0,.35);
-
 }
 
 @media(max-width:700px){
 
 .hero {
 
+  height:85vh;
   min-height:550px;
+
+}
+
+.hero::before {
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.45)
+    ),
+    url("/hero-mobile.jpg");
+
+  background-size:cover;
+
+  background-position:center;
 
 }
 
 .hero h1 {
 
-  font-size:38px;
+  font-size:34px;
 
 }
 
@@ -173,42 +191,16 @@
 
 }
 
+.hero-content {
+
+  padding:20px;
+
+}
+
 .hero a {
 
   padding:16px 35px;
 
 }
-
-}
-@media(max-width: 700px) {
-
-  .hero {
-
-    height: 85vh;
-    min-height: 550px;
-
-    background:
-      linear-gradient(
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.45)
-      ),
-      url("/hero-mobile.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-  }
-
-  @media(max-width:700px){
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero-content {
-        padding: 20px;
-    }
-
-  }
 
 }
