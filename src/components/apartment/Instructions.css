@@ -1,0 +1,69 @@
+.instructions {
+
+  max-width:1200px;
+
+  margin:80px auto;
+
+  padding:0 25px;
+
+}
+
+.instructions h2 {
+
+  font-size:36px;
+
+  margin-bottom:35px;
+
+}
+
+.instruction-grid {
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:25px;
+
+}
+
+.instruction-card {
+
+  background:white;
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  box-shadow:
+
+  0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.instruction-card video {
+
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+}
+
+.instruction-card h3 {
+
+  padding:20px;
+
+  margin:0;
+
+}
+
+@media(max-width:800px){
+
+.instruction-grid {
+
+ grid-template-columns:1fr;
+
+}
+
+}

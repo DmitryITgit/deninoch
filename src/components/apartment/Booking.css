@@ -1,0 +1,205 @@
+.booking {
+
+  max-width:420px;
+
+  margin:60px auto;
+
+  padding:0 20px;
+
+}
+
+.booking-card {
+
+  background:white;
+
+  border-radius:28px;
+
+  padding:35px;
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,0.08);
+
+}
+
+.booking-card h2 {
+
+  margin:0;
+
+  font-size:36px;
+
+  font-weight:600;
+
+  color:#222;
+
+}
+
+.booking-card h2 span {
+
+  font-size:18px;
+
+  color:#777;
+
+  font-weight:400;
+
+}
+
+.booking-text {
+
+  margin-top:20px;
+
+  color:#666;
+
+  line-height:1.6;
+
+}
+
+.phone-flip {
+
+  width:100%;
+
+  height:55px;
+
+  margin-top:30px;
+
+  perspective:1000px;
+
+  cursor:pointer;
+
+}
+
+.phone-inner {
+
+  width:100%;
+
+  height:100%;
+
+  position:relative;
+
+  transition:.6s;
+
+  transform-style:preserve-3d;
+
+}
+
+.phone-flip.active .phone-inner {
+
+  transform:rotateY(180deg);
+
+}
+
+.phone-front,
+.phone-back {
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:18px;
+
+  backface-visibility:hidden;
+
+  font-size:16px;
+
+  font-weight:500;
+
+}
+
+.phone-front {
+
+  background:#8f7355;
+
+  color:white;
+
+  gap:10px;
+
+}
+
+.phone-back {
+
+  background:#222;
+
+  color:white;
+
+  transform:rotateY(180deg);
+
+  flex-direction:column;
+
+  text-decoration:none;
+
+}
+
+.phone-back small {
+
+  font-size:12px;
+
+  margin-top:4px;
+
+  opacity:.7;
+
+}
+
+.telegram-button {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  height:55px;
+
+  margin-top:15px;
+
+  border-radius:18px;
+
+  background:#eef7ff;
+
+  color:#168ad0;
+
+  text-decoration:none;
+
+  font-weight:500;
+
+}
+
+.booking-note {
+
+  margin-top:25px;
+
+  text-align:center;
+
+  color:#888;
+
+  font-size:14px;
+
+  line-height:1.5;
+
+}
+
+@media(max-width:600px){
+
+.booking {
+
+  padding:0 15px;
+
+}
+
+.booking-card {
+
+  padding:25px;
+
+}
+
+.booking-card h2 {
+
+  font-size:30px;
+
+}
+
+}

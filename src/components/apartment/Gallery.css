@@ -1,0 +1,289 @@
+.apartment-gallery {
+
+  max-width:1200px;
+
+  margin:40px auto;
+
+  padding:0 25px;
+
+  display:grid;
+
+  grid-template-columns:2fr 1fr;
+
+  gap:15px;
+
+  height:600px;
+
+}
+
+.main-photo {
+
+  overflow:hidden;
+
+  border-radius:25px;
+
+}
+
+.main-photo img {
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.5s;
+
+}
+
+.small-photos {
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:15px;
+
+}
+
+.gallery-item {
+
+  overflow:hidden;
+
+  border-radius:20px;
+
+}
+
+.gallery-item img {
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.5s;
+
+}
+
+.main-photo:hover img,
+.gallery-item:hover img {
+
+  transform:scale(1.05);
+
+}
+
+.photo-modal {
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.8);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  z-index:1000;
+
+  animation:fade .3s ease;
+
+}
+
+.photo-modal img {
+
+  max-width:90%;
+
+  max-height:90%;
+
+  border-radius:20px;
+
+  object-fit:contain;
+
+  animation:zoom .3s ease;
+
+}
+
+.close-photo {
+
+  position:absolute;
+
+  top:30px;
+
+  right:40px;
+
+  width:50px;
+
+  height:50px;
+
+  border-radius:50%;
+
+  border:none;
+
+  background:white;
+
+  font-size:35px;
+
+  cursor:pointer;
+
+}
+
+@keyframes fade {
+
+  from {
+
+    opacity:0;
+
+  }
+
+  to {
+
+    opacity:1;
+
+  }
+
+}
+
+@keyframes zoom {
+
+  from {
+
+    transform:scale(.8);
+
+  }
+
+  to {
+
+    transform:scale(1);
+
+  }
+
+}
+.photo-arrow {
+
+  position:absolute;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  width:55px;
+
+  height:55px;
+
+  border-radius:50%;
+
+  border:none;
+
+  background:white;
+
+  font-size:45px;
+
+  line-height:40px;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  transition:.3s;
+
+}
+
+.photo-arrow:hover {
+
+  transform:translateY(-50%) scale(1.1);
+
+}
+
+.photo-arrow.left {
+
+  left:40px;
+
+}
+
+.photo-arrow.right {
+
+  right:40px;
+
+}
+
+.photo-counter {
+
+  position:absolute;
+
+  bottom:30px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  background:rgba(0,0,0,0.5);
+
+  color:white;
+
+  padding:8px 18px;
+
+  border-radius:20px;
+
+  font-size:16px;
+
+}
+
+@media(max-width:700px){
+
+.photo-arrow {
+
+  width:45px;
+
+  height:45px;
+
+  font-size:35px;
+
+}
+
+.photo-arrow.left {
+
+  left:15px;
+
+}
+
+.photo-arrow.right {
+
+  right:15px;
+
+}
+
+}
+
+@media(max-width:800px){
+
+.apartment-gallery {
+
+  display:flex;
+
+  flex-direction:column;
+
+  height:auto;
+
+}
+
+.main-photo {
+
+  height:350px;
+
+}
+
+.small-photos {
+
+  height:300px;
+
+}
+
+}
