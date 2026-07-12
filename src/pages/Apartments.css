@@ -18,9 +18,11 @@
 
   display:grid;
 
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns:repeat(auto-fill, 300px);
 
   gap:30px;
+
+  justify-content:start;
 
 }
 
@@ -65,6 +67,8 @@
   }
 
   .apartments-list {
+
+    grid-template-columns:repeat(auto-fill, 300px);
 
     gap:20px;
 
@@ -130,7 +134,7 @@
 
   }
 
-  /* Две квартиры в ряд */
+  /* 2 квартиры в ряд */
 
   .apartments-list {
 
@@ -152,7 +156,7 @@
 
 }
 
-/* Очень маленькие телефоны */
+/* Маленькие телефоны */
 
 @media(max-width:380px){
 
