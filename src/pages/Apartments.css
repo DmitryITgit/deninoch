@@ -10,6 +10,8 @@
 
   margin-bottom:30px;
 
+  animation: apartmentsTitle .7s ease;
+
 }
 
 /* Сетка квартир */
@@ -24,6 +26,38 @@
 
   justify-content:start;
 
+}
+
+/* Плавное появление карточек */
+
+.apartments-list > * {
+
+  animation: showApartment .6s ease backwards;
+
+}
+
+.apartments-list > *:nth-child(1){
+  animation-delay:.1s;
+}
+
+.apartments-list > *:nth-child(2){
+  animation-delay:.2s;
+}
+
+.apartments-list > *:nth-child(3){
+  animation-delay:.3s;
+}
+
+.apartments-list > *:nth-child(4){
+  animation-delay:.4s;
+}
+
+.apartments-list > *:nth-child(5){
+  animation-delay:.5s;
+}
+
+.apartments-list > *:nth-child(6){
+  animation-delay:.6s;
 }
 
 /* Поиск */
@@ -102,6 +136,8 @@
 
     margin-bottom:30px;
 
+    animation: showSearch .7s ease;
+
   }
 
   .search-mobile input {
@@ -163,6 +199,68 @@
   .apartments-list {
 
     grid-template-columns:1fr;
+
+  }
+
+}
+
+/* Анимации */
+
+@keyframes showApartment {
+
+  from {
+
+    opacity:0;
+
+    transform:translateY(40px) scale(.97);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:translateY(0) scale(1);
+
+  }
+
+}
+
+@keyframes apartmentsTitle {
+
+  from {
+
+    opacity:0;
+
+    transform:translateY(-25px);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+@keyframes showSearch {
+
+  from {
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:translateY(0);
 
   }
 
