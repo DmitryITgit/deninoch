@@ -1,4 +1,4 @@
-import { useState, } from "react"
+import { useState } from "react"
 import "./Gallery.css"
 
 function Gallery({ photos }) {
@@ -6,164 +6,124 @@ function Gallery({ photos }) {
   const [activePhoto, setActivePhoto] = useState(null)
 
   const nextPhoto = () => {
-
-    setActivePhoto(
-
-      (activePhoto + 1) % photos.length
-
-    )
-
+    setActivePhoto((activePhoto + 1) % photos.length)
   }
 
   const prevPhoto = () => {
-
-    setActivePhoto(
-
-      (activePhoto - 1 + photos.length) % photos.length
-
-    )
-
+    setActivePhoto((activePhoto - 1 + photos.length) % photos.length)
   }
 
   return (
-
     <>
 
       <section className="apartment-gallery">
 
         <div
-
           className="main-photo"
-
           onClick={() => setActivePhoto(0)}
-
         >
-
           <img
-
             src={photos[0]}
-
             alt="Квартира"
-
           />
-
         </div>
 
         <div className="small-photos">
 
-          {
-            photos.slice(1,5).map((photo,index)=>(
+          {photos.slice(1, 5).map((photo, index) => {
+
+            const isLast =
+              index === 3 && photos.length > 5
+
+            return (
 
               <div
-
                 className="gallery-item"
-
                 key={index}
-
                 onClick={() => setActivePhoto(index + 1)}
-
               >
 
                 <img
-
                   src={photo}
-
                   alt="Квартира"
-
                 />
+
+                {isLast && (
+
+                  <div className="gallery-overlay">
+
+                    +{photos.length - 5} фото
+
+                  </div>
+
+                )}
 
               </div>
 
-            ))
-          }
+            )
+
+          })}
 
         </div>
 
       </section>
 
-      {
-        activePhoto !== null && (
+      {activePhoto !== null && (
 
-          <div
+        <div
+          className="photo-modal"
+          onClick={() => setActivePhoto(null)}
+        >
 
-            className="photo-modal"
-
+          <button
+            className="close-photo"
             onClick={() => setActivePhoto(null)}
-
           >
+            ×
+          </button>
 
-            <button
+          <button
+            className="photo-arrow left"
+            onClick={(e) => {
 
-              className="close-photo"
+              e.stopPropagation()
+              prevPhoto()
 
-              onClick={() => setActivePhoto(null)}
+            }}
+          >
+            ‹
+          </button>
 
-            >
+          <img
+            src={photos[activePhoto]}
+            alt="Большое фото"
+            onClick={(e) => e.stopPropagation()}
+          />
 
-              ×
+          <button
+            className="photo-arrow right"
+            onClick={(e) => {
 
-            </button>
+              e.stopPropagation()
+              nextPhoto()
 
-            <button
+            }}
+          >
+            ›
 
-              className="photo-arrow left"
+          </button>
 
-              onClick={(e)=>{
+          <div className="photo-counter">
 
-                e.stopPropagation()
-
-                prevPhoto()
-
-              }}
-
-            >
-
-              ‹
-
-            </button>
-
-            <img
-
-              src={photos[activePhoto]}
-
-              alt="Большое фото"
-
-              onClick={(e)=>e.stopPropagation()}
-
-            />
-
-            <button
-
-              className="photo-arrow right"
-
-              onClick={(e)=>{
-
-                e.stopPropagation()
-
-                nextPhoto()
-
-              }}
-
-            >
-
-              ›
-
-            </button>
-
-            <div className="photo-counter">
-
-              {activePhoto + 1} / {photos.length}
-
-            </div>
+            {activePhoto + 1} / {photos.length}
 
           </div>
 
-        )
+        </div>
 
-      }
+      )}
 
     </>
-
   )
 
 }
