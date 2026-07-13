@@ -22,11 +22,39 @@
 /* ---------- Логотип ---------- */
 
 .logo {
-  text-decoration: none;
-  color: #222;
-  font-size: 27px;
-  font-weight: 700;
-  letter-spacing: .5px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  text-decoration:none;
+
+}
+
+.logo-title {
+
+  font-size:26px;
+
+  font-weight:600;
+
+  color:#222;
+
+  line-height:1.1;
+
+}
+
+.logo-subtitle {
+
+  margin-top:4px;
+
+  font-size:11px;
+
+  letter-spacing:.8px;
+
+  text-transform:uppercase;
+
+  color:#888;
+
 }
 
 /* ---------- Меню ПК ---------- */

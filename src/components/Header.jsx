@@ -23,12 +23,19 @@ function Header() {
       <header className="header">
         <div className="header-container">
 
-          <Link
-            className="logo"
+          <Link 
+            className="logo" 
             to="/"
-            onClick={scrollTop}
           >
-            День и ночь
+
+            <div className="logo-title">
+              День и ночь
+            </div>
+
+            <div className="logo-subtitle">
+              Элитные квартиры в Ульяновске
+            </div>
+
           </Link>
 
           {/* Меню для компьютера */}
@@ -87,8 +94,6 @@ function Header() {
           <p>
             Посуточная аренда квартир
             
-
-            Новый город
           </p>
 
         </div>
