@@ -6,6 +6,7 @@ import Apartments from "./pages/Apartments"
 import Apartment from "./pages/Apartment"
 import Contacts from "./pages/Contacts";
 import ScrollTop from "./components/ScrollTop"
+import Faq from "./pages/Faq";
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
         <Route
           path="/contacts"
           element={<Contacts />}
+        />
+
+        <Route 
+          path="/faq" 
+          element={<Faq />} 
         />
 
       </Routes>
