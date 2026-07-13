@@ -5,15 +5,26 @@ function Gallery({ photos }) {
 
   const [activePhoto, setActivePhoto] = useState(null)
 
+  const [showAll, setShowAll] = useState(false)
+
   const nextPhoto = () => {
-    setActivePhoto((activePhoto + 1) % photos.length)
+
+    setActivePhoto(
+      (activePhoto + 1) % photos.length
+    )
+
   }
 
   const prevPhoto = () => {
-    setActivePhoto((activePhoto - 1 + photos.length) % photos.length)
+
+    setActivePhoto(
+      (activePhoto - 1 + photos.length) % photos.length
+    )
+
   }
 
   return (
+
     <>
 
       <section className="apartment-gallery">
@@ -22,93 +33,190 @@ function Gallery({ photos }) {
           className="main-photo"
           onClick={() => setActivePhoto(0)}
         >
+
           <img
             src={photos[0]}
             alt="Квартира"
           />
+
         </div>
 
         <div className="small-photos">
 
-          {photos.slice(1, 5).map((photo, index) => {
+          {photos.slice(1,5).map((photo,index)=>(
 
-            const isLast =
-              index === 3 && photos.length > 5
+            <div
 
-            return (
+              className="gallery-item"
 
-              <div
-                className="gallery-item"
-                key={index}
-                onClick={() => setActivePhoto(index + 1)}
-              >
+              key={index}
 
-                <img
-                  src={photo}
-                  alt="Квартира"
-                />
+              onClick={() => setActivePhoto(index + 1)}
 
-                {isLast && (
+            >
 
-                  <div className="gallery-overlay">
+              <img
+                src={photo}
+                alt="Квартира"
+              />
 
-                    +{photos.length - 5} фото
+            </div>
 
-                  </div>
+          ))}
 
-                )}
+          {photos.length > 5 && (
 
-              </div>
+            <button
 
-            )
+              className="show-all"
 
-          })}
+              onClick={() => setShowAll(true)}
+
+            >
+
+              Показать ещё
+              <span>
+                {photos.length - 5} фото
+              </span>
+
+            </button>
+
+          )}
 
         </div>
 
       </section>
 
+      {showAll && (
+
+        <div
+
+          className="all-photos"
+
+          onClick={() => setShowAll(false)}
+
+        >
+
+          <div
+
+            className="all-photos-container"
+
+            onClick={(e)=>e.stopPropagation()}
+
+          >
+
+            <button
+
+              className="close-all"
+
+              onClick={()=>setShowAll(false)}
+
+            >
+
+              ×
+
+            </button>
+
+            <h2>
+              Все фотографии
+            </h2>
+
+            <div className="photos-grid">
+
+              {photos.map((photo,index)=>(
+
+                <img
+
+                  key={index}
+
+                  src={photo}
+
+                  alt="Квартира"
+
+                  onClick={()=>{
+
+                    setActivePhoto(index)
+
+                    setShowAll(false)
+
+                  }}
+
+                />
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
       {activePhoto !== null && (
 
         <div
+
           className="photo-modal"
-          onClick={() => setActivePhoto(null)}
+
+          onClick={()=>setActivePhoto(null)}
+
         >
 
           <button
+
             className="close-photo"
-            onClick={() => setActivePhoto(null)}
+
+            onClick={()=>setActivePhoto(null)}
+
           >
+
             ×
+
           </button>
 
           <button
+
             className="photo-arrow left"
-            onClick={(e) => {
+
+            onClick={(e)=>{
 
               e.stopPropagation()
+
               prevPhoto()
 
             }}
+
           >
+
             ‹
+
           </button>
 
           <img
+
             src={photos[activePhoto]}
+
             alt="Большое фото"
-            onClick={(e) => e.stopPropagation()}
+
+            onClick={(e)=>e.stopPropagation()}
+
           />
 
           <button
+
             className="photo-arrow right"
-            onClick={(e) => {
+
+            onClick={(e)=>{
 
               e.stopPropagation()
+
               nextPhoto()
 
             }}
+
           >
+
             ›
 
           </button>
@@ -124,6 +232,7 @@ function Gallery({ photos }) {
       )}
 
     </>
+
   )
 
 }
