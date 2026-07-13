@@ -3,7 +3,7 @@ const apartments = [
   {
     id: 1,
     title: "Уютная студия 23м у военной части",
-    price: 3500,
+    price: 3000,
     address: "Кашубы 4к2",
     description:
       "Чистая квартира с современным ремонтом, свежим бельём и всем необходимым для комфортного проживания.",
@@ -12,7 +12,16 @@ const apartments = [
       "/apartments/apart1/2.jpg",
       "/apartments/apart1/3.jpg",
       "/apartments/apart1/4.jpg",
-      "/apartments/apart1/5.jpg"
+      "/apartments/apart1/5.jpg",
+      "/apartments/apart1/6.jpg",
+      "/apartments/apart1/7.jpg",
+      "/apartments/apart1/8.jpg",
+      "/apartments/apart1/9.jpg",
+      "/apartments/apart1/10.jpg",
+      "/apartments/apart1/11.jpg",
+      "/apartments/apart1/12.jpg",
+      "/apartments/apart1/13.jpg",
+      "/apartments/apart1/14.jpg"
     ],
     instructions: [
       {
@@ -37,7 +46,7 @@ const apartments = [
     price: 3500,
     address: "Кашубы 4к1",
     description:
-      "Уютная квартира на 8 этаже с новым ремонтом, удобной мебелью и всем, что нужно для отдыха и рааботы.",
+      "Уютная квартира на 8 этаже с новым ремонтом, удобной мебелью и всем, что нужно для отдыха и работы.",
     photos: [
       "/apartments/apart2/1.jpg",
       "/apartments/apart2/2.jpg",

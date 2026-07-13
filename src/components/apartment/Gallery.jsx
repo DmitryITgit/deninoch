@@ -1,11 +1,11 @@
 import { useState } from "react"
 import "./Gallery.css"
 
-function Gallery({ photos }) {
+function Gallery({ photos = [] }) {
 
   const [activePhoto, setActivePhoto] = useState(null)
 
-  const [showAll, setShowAll] = useState(false)
+  const [showAllPhotos, setShowAllPhotos] = useState(false)
 
   const nextPhoto = () => {
 
@@ -23,6 +23,8 @@ function Gallery({ photos }) {
 
   }
 
+  console.log("Пришло фотографий:", photos.length)
+
   return (
 
     <>
@@ -30,13 +32,19 @@ function Gallery({ photos }) {
       <section className="apartment-gallery">
 
         <div
+
           className="main-photo"
+
           onClick={() => setActivePhoto(0)}
+
         >
 
           <img
+
             src={photos[0]}
+
             alt="Квартира"
+
           />
 
         </div>
@@ -56,50 +64,52 @@ function Gallery({ photos }) {
             >
 
               <img
+
                 src={photo}
+
                 alt="Квартира"
+
               />
 
             </div>
 
           ))}
 
-          {photos.length > 5 && (
+          <button
 
-            <button
+            className="show-all"
 
-              className="show-all"
+            onClick={() => setShowAllPhotos(true)}
 
-              onClick={() => setShowAll(true)}
+          >
 
-            >
-
+            <strong>
               Показать ещё
-              <span>
-                {photos.length - 5} фото
-              </span>
+            </strong>
 
-            </button>
+            <span>
+              Все {photos.length} фото
+            </span>
 
-          )}
+          </button>
 
         </div>
 
       </section>
 
-      {showAll && (
+      {showAllPhotos && (
 
         <div
 
           className="all-photos"
 
-          onClick={() => setShowAll(false)}
+          onClick={() => setShowAllPhotos(false)}
 
         >
 
           <div
 
-            className="all-photos-container"
+            className="all-photos-box"
 
             onClick={(e)=>e.stopPropagation()}
 
@@ -109,7 +119,7 @@ function Gallery({ photos }) {
 
               className="close-all"
 
-              onClick={()=>setShowAll(false)}
+              onClick={() => setShowAllPhotos(false)}
 
             >
 
@@ -118,30 +128,38 @@ function Gallery({ photos }) {
             </button>
 
             <h2>
-              Все фотографии
+              Все фотографии ({photos.length})
             </h2>
 
             <div className="photos-grid">
 
               {photos.map((photo,index)=>(
 
-                <img
+                <div
 
                   key={index}
 
-                  src={photo}
+                  className="all-photo-item"
 
-                  alt="Квартира"
-
-                  onClick={()=>{
+                  onClick={() => {
 
                     setActivePhoto(index)
 
-                    setShowAll(false)
+                    setShowAllPhotos(false)
 
                   }}
 
-                />
+                >
+
+                  <img
+
+                    src={photo}
+
+                    alt={`Фото ${index + 1}`}
+
+                  />
+
+                </div>
 
               ))}
 
@@ -159,7 +177,7 @@ function Gallery({ photos }) {
 
           className="photo-modal"
 
-          onClick={()=>setActivePhoto(null)}
+          onClick={() => setActivePhoto(null)}
 
         >
 
@@ -167,7 +185,7 @@ function Gallery({ photos }) {
 
             className="close-photo"
 
-            onClick={()=>setActivePhoto(null)}
+            onClick={() => setActivePhoto(null)}
 
           >
 
