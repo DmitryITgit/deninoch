@@ -1,26 +1,42 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {
+  House,
+  Building2,
+  CircleHelp,
+  Phone,
+  FileText
+} from "lucide-react";
+
 import "./Header.css";
 
 function Header() {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollTop = () => {
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
     setMenuOpen(false);
+
   };
 
   const closeMenu = () => {
+
     setMenuOpen(false);
+
   };
 
   return (
+
     <>
+
       <header className="header">
+
         <div className="header-container">
 
           <Link 
@@ -37,8 +53,6 @@ function Header() {
             </div>
 
           </Link>
-
-          {/* Меню для компьютера */}
 
           <nav className="nav">
 
@@ -58,17 +72,18 @@ function Header() {
               Контакты
             </Link>
 
-            <Link to="/rules">
+            <Link to="/rules" onClick={scrollTop}>
               Правила
             </Link>
 
           </nav>
 
-          {/* Бургер */}
-
           <button
+
             className={`burger ${menuOpen ? "active" : ""}`}
+
             onClick={() => setMenuOpen(!menuOpen)}
+
           >
 
             <span></span>
@@ -78,26 +93,31 @@ function Header() {
           </button>
 
         </div>
+
       </header>
 
-      {/* Затемнение */}
-
       <div
+
         className={`overlay ${menuOpen ? "show" : ""}`}
+
         onClick={closeMenu}
+
       ></div>
 
-      {/* Мобильное меню */}
+      <aside
 
-      <aside className={`mobile-menu ${menuOpen ? "show" : ""}`}>
+        className={`mobile-menu ${menuOpen ? "show" : ""}`}
+
+      >
 
         <div className="mobile-top">
 
-          <h2>День и ночь</h2>
+          <h2>
+            День и ночь
+          </h2>
 
           <p>
             Посуточная аренда квартир
-            
           </p>
 
         </div>
@@ -108,44 +128,65 @@ function Header() {
             to="/"
             onClick={scrollTop}
           >
-            🏠 Главная
+
+            <House />
+
+            Главная
+
           </Link>
 
           <Link
             to="/apartments"
             onClick={scrollTop}
           >
-            🏢 Квартиры
+
+            <Building2 />
+
+            Квартиры
+
           </Link>
 
           <Link
             to="/faq"
             onClick={scrollTop}
           >
-            ❓ FAQ
+
+            <CircleHelp />
+
+            FAQ
+
           </Link>
 
           <Link
             to="/contacts"
             onClick={scrollTop}
           >
-            📞 Контакты
+
+            <Phone />
+
+            Контакты
+
           </Link>
 
           <Link
             to="/rules"
             onClick={scrollTop}
           >
-            📜 Правила
-          </Link>
 
-          
+            <FileText />
+
+            Правила
+
+          </Link>
 
         </nav>
 
       </aside>
+
     </>
+
   );
+
 }
 
 export default Header;
