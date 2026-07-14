@@ -53,7 +53,7 @@ function Contacts() {
 
           className="contact-item"
 
-          href="https://wa.me/79991234567"
+          href="https://max.ru/u/f9LHodD0cOLnB5TX3HY9Cjlg1MyvL9CVSbcupyK5lO-iXGDkxar6XajG6XY"
 
           target="_blank"
 
@@ -97,19 +97,16 @@ function Contacts() {
 
           className="contact-item"
 
-          href="mailto:info@rentapart.ru"
+          href="https://wa.me/79539836853"
 
         >
 
           <Mail />
 
           <h3>
-            Email
+            WhatsApp
           </h3>
 
-          <span>
-            info@rentapart.ru
-          </span>
 
         </a>
 
