@@ -58,6 +58,10 @@ function Header() {
               Контакты
             </Link>
 
+            <Link to="/rules">
+              Правила
+            </Link>
+
           </nav>
 
           {/* Бургер */}

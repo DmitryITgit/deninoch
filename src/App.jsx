@@ -7,6 +7,7 @@ import Apartment from "./pages/Apartment"
 import Contacts from "./pages/Contacts";
 import ScrollTop from "./components/ScrollTop"
 import Faq from "./pages/Faq";
+import Rules from "./pages/Rules"
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
         <Route 
           path="/faq" 
           element={<Faq />} 
+        />
+
+        <Route 
+          path="/rules"
+          element={<Rules />} 
         />
 
       </Routes>

@@ -38,7 +38,7 @@ function ApartmentCard({ apartment }) {
 
         <strong>
 
-          {apartment.price} ₽ / сутки
+          от {apartment.price} ₽ / сутки
 
         </strong>
 
