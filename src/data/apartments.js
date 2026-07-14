@@ -52,7 +52,16 @@ const apartments = [
       "/apartments/apart2/2.jpg",
       "/apartments/apart2/3.jpg",
       "/apartments/apart2/4.jpg",
-      "/apartments/apart2/5.jpg"
+      "/apartments/apart2/5.jpg",
+      "/apartments/apart2/6.jpg",
+      "/apartments/apart2/7.jpg",
+      "/apartments/apart2/8.jpg",
+      "/apartments/apart2/9.jpg",
+      "/apartments/apart2/10.jpg",
+      "/apartments/apart2/11.jpg",
+      "/apartments/apart2/12.jpg",
+      "/apartments/apart2/13.jpg",
+      "/apartments/apart2/14.jpg",
     ],
     instructions: [
       {
@@ -74,7 +83,7 @@ const apartments = [
     id: 3,
     title: "Стильные апартаменты для комфортного отдыха",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Кашубы 4к1",
     description:
       "Светлая и просторная квартира, полностью готовая к заселению. Всегда чисто, уютно и комфортно.",
     photos: [
@@ -82,7 +91,16 @@ const apartments = [
       "/apartments/apart3/2.jpg",
       "/apartments/apart3/3.jpg",
       "/apartments/apart3/4.jpg",
-      "/apartments/apart3/5.jpg"
+      "/apartments/apart3/5.jpg",
+      "/apartments/apart3/6.jpg",
+      "/apartments/apart3/7.jpg",
+      "/apartments/apart3/8.jpg",
+      "/apartments/apart3/9.jpg",
+      "/apartments/apart3/10.jpg",
+      "/apartments/apart3/11.jpg",
+      "/apartments/apart3/12.jpg",
+      "/apartments/apart3/13.jpg",
+      "/apartments/apart3/14.jpg",
     ],
     instructions: [
       {
@@ -104,11 +122,20 @@ const apartments = [
     id: 4,
     title: "Просторная квартира рядом с центром",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Созидателей 114к2",
     description:
       "Современные апартаменты с качественным ремонтом, чистым бельём и полностью оборудованной кухней.",
     photos: [
       "/apartments/apart4/1.jpg",
+      "/apartments/apart4/2.jpg",
+      "/apartments/apart4/3.jpg",
+      "/apartments/apart4/4.jpg",
+      "/apartments/apart4/5.jpg",
+      "/apartments/apart4/1.jpg",
+      "/apartments/apart4/2.jpg",
+      "/apartments/apart4/3.jpg",
+      "/apartments/apart4/4.jpg",
+      "/apartments/apart4/5.jpg",
       "/apartments/apart4/2.jpg",
       "/apartments/apart4/3.jpg",
       "/apartments/apart4/4.jpg",
@@ -134,7 +161,7 @@ const apartments = [
     id: 5,
     title: "Современная квартира с уютной атмосферой",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Тюленева 32к2",
     description:
       "Комфортная квартира в отличном состоянии с быстрым Wi-Fi, бытовой техникой и свежими полотенцами.",
     photos: [
@@ -142,7 +169,15 @@ const apartments = [
       "/apartments/apart5/2.jpg",
       "/apartments/apart5/3.jpg",
       "/apartments/apart5/4.jpg",
-      "/apartments/apart5/5.jpg"
+      "/apartments/apart5/5.jpg",
+      "/apartments/apart5/6.jpg",
+      "/apartments/apart5/7.jpg",
+      "/apartments/apart5/8.jpg",
+      "/apartments/apart5/9.jpg",
+      "/apartments/apart5/10.jpg",
+      "/apartments/apart5/11.jpg",
+      "/apartments/apart5/12.jpg",
+      "/apartments/apart5/13.jpg",
     ],
     instructions: [
       {
@@ -164,7 +199,7 @@ const apartments = [
     id: 6,
     title: "Комфортные апартаменты для отдыха и работы",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Тюленева 32",
     description:
       "Идеальное место для отдыха или командировки: чистота, уют и всё необходимое для проживания.",
     photos: [
@@ -172,7 +207,17 @@ const apartments = [
       "/apartments/apart6/2.jpg",
       "/apartments/apart6/3.jpg",
       "/apartments/apart6/4.jpg",
-      "/apartments/apart6/5.jpg"
+      "/apartments/apart6/5.jpg",
+      "/apartments/apart6/6.jpg",
+      "/apartments/apart6/7.jpg",
+      "/apartments/apart6/8.jpg",
+      "/apartments/apart6/9.jpg",
+      "/apartments/apart6/10.jpg",
+      "/apartments/apart6/11.jpg",
+      "/apartments/apart6/12.jpg",
+      "/apartments/apart6/13.jpg",
+      "/apartments/apart6/14.jpg",
+      "/apartments/apart6/15.jpg"
     ],
     instructions: [
       {
@@ -194,7 +239,7 @@ const apartments = [
     id: 7,
     title: "Уютная квартира с новым ремонтом",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Тюленева 32к2",
     description:
       "Стильная квартира с продуманным интерьером, современной техникой и комфортной зоной отдыха.",
     photos: [
@@ -202,7 +247,17 @@ const apartments = [
       "/apartments/apart7/2.jpg",
       "/apartments/apart7/3.jpg",
       "/apartments/apart7/4.jpg",
-      "/apartments/apart7/5.jpg"
+      "/apartments/apart7/5.jpg",
+      "/apartments/apart7/6.jpg",
+      "/apartments/apart7/7.jpg",
+      "/apartments/apart7/8.jpg",
+      "/apartments/apart7/9.jpg",
+      "/apartments/apart7/10.jpg",
+      "/apartments/apart7/11.jpg",
+      "/apartments/apart7/12.jpg",
+      "/apartments/apart7/13.jpg",
+      "/apartments/apart7/14.jpg",
+      "/apartments/apart7/15.jpg"
     ],
     instructions: [
       {
@@ -224,7 +279,7 @@ const apartments = [
     id: 8,
     title: "Просторные апартаменты в удобном районе",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Кашубы 4к1",
     description:
       "Просторная квартира с домашней атмосферой, свежим бельём и всем необходимым для вашего удобства.",
     photos: [
@@ -232,7 +287,17 @@ const apartments = [
       "/apartments/apart8/2.jpg",
       "/apartments/apart8/3.jpg",
       "/apartments/apart8/4.jpg",
-      "/apartments/apart8/5.jpg"
+      "/apartments/apart8/5.jpg",
+      "/apartments/apart8/6.jpg",
+      "/apartments/apart8/7.jpg",
+      "/apartments/apart8/8.jpg",
+      "/apartments/apart8/9.jpg",
+      "/apartments/apart8/10.jpg",
+      "/apartments/apart8/11.jpg",
+      "/apartments/apart8/12.jpg",
+      "/apartments/apart8/13.jpg",
+      "/apartments/apart8/14.jpg",
+      "/apartments/apart8/15.jpg"
     ],
     instructions: [
       {
@@ -254,7 +319,7 @@ const apartments = [
     id: 9,
     title: "Светлая квартира с панорамными окнами",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Кашубы 4к1",
     description:
       "Уютные апартаменты с качественным ремонтом, удобной кроватью и всем необходимым для комфортного отдыха.",
     photos: [
@@ -262,7 +327,17 @@ const apartments = [
       "/apartments/apart9/2.jpg",
       "/apartments/apart9/3.jpg",
       "/apartments/apart9/4.jpg",
-      "/apartments/apart9/5.jpg"
+      "/apartments/apart9/5.jpg",
+      "/apartments/apart9/6.jpg",
+      "/apartments/apart9/7.jpg",
+      "/apartments/apart9/8.jpg",
+      "/apartments/apart9/9.jpg",
+      "/apartments/apart9/10.jpg",
+      "/apartments/apart9/11.jpg",
+      "/apartments/apart9/12.jpg",
+      "/apartments/apart9/13.jpg",
+      "/apartments/apart9/14.jpg",
+      "/apartments/apart9/15.jpg"
     ],
     instructions: [
       {
@@ -284,7 +359,7 @@ const apartments = [
     id: 10,
     title: "Современная квартира для вашего отдыха",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Кашубы 4к1",
     description:
       "Современная квартира с высоким уровнем чистоты, полностью готовая к вашему приезду.",
     photos: [
@@ -314,7 +389,7 @@ const apartments = [
     id: 11,
     title: "Уютные апартаменты с дизайнерским интерьером",
     price: 3500,
-    address: "Кашубы 4",
+    address: "Кашубы 4к1",
     description:
       "Комфортное жильё с новой мебелью, бытовой техникой и всем необходимым для длительного проживания.",
     photos: [
