@@ -29,6 +29,24 @@
   color: #555;
 }
 
+.feature svg {
+
+  color:#b08b5c;
+
+  flex-shrink:0;
+
+}
+
+.apartment-address {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+}
+
 .apartment strong {
   display: block;
 

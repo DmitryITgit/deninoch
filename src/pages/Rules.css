@@ -186,6 +186,32 @@
 
   }
 
+  .rule svg {
+
+  width:32px;
+
+  height:32px;
+
+  min-width:32px;
+
+  color:#b08b5c;
+
+  stroke-width:1.8;
+
+}
+
+.welcome svg {
+
+  width:32px;
+
+  height:32px;
+
+  color:#b08b5c;
+
+  margin-bottom:15px;
+
+}
+
   .rule{
 
     gap:15px;

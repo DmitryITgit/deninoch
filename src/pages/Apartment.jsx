@@ -1,5 +1,13 @@
 import { useParams } from "react-router-dom"
 
+import { 
+  MapPin,
+  BedDouble,
+  Bath,
+  Wifi,
+  CookingPot
+} from "lucide-react"
+
 import "./Apartment.css"
 
 import apartments from "../data/apartments"
@@ -42,7 +50,9 @@ function Apartment() {
 
         <p className="apartment-address">
 
-          📍 {apartment.address}
+          <MapPin size={20}/>
+
+          {apartment.address}
 
         </p>
 
@@ -50,14 +60,11 @@ function Apartment() {
 
       <Gallery photos={apartment.photos} />
 
-      
-
       <Instructions
 
         instructions={apartment.instructions}
 
       />
-
 
       <section className="description">
 
@@ -77,7 +84,7 @@ function Apartment() {
 
           <div className="feature">
 
-            🛏
+            <BedDouble size={26}/>
 
             <span>
               Удобная кровать
@@ -87,7 +94,7 @@ function Apartment() {
 
           <div className="feature">
 
-            🚿
+            <Bath size={26}/>
 
             <span>
               Чистая ванная комната
@@ -97,7 +104,7 @@ function Apartment() {
 
           <div className="feature">
 
-            📶
+            <Wifi size={26}/>
 
             <span>
               Wi-Fi
@@ -107,7 +114,7 @@ function Apartment() {
 
           <div className="feature">
 
-            🍽
+            <CookingPot size={26}/>
 
             <span>
               Посуда и техника

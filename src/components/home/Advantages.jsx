@@ -1,7 +1,16 @@
 import "./Advantages.css"
 
+import {
+  House,
+  Bed,
+  Sparkles,
+  Video
+} from "lucide-react"
+
 function Advantages() {
+
   return (
+
     <section className="advantages">
 
       <h2>
@@ -18,7 +27,9 @@ function Advantages() {
         <div className="advantage-card">
 
           <div className="advantage-icon">
-            🏠
+
+            <House />
+
           </div>
 
           <h3>
@@ -35,7 +46,9 @@ function Advantages() {
         <div className="advantage-card">
 
           <div className="advantage-icon">
-            🧺
+
+            <Bed />
+
           </div>
 
           <h3>
@@ -52,7 +65,9 @@ function Advantages() {
         <div className="advantage-card">
 
           <div className="advantage-icon">
-            ✨
+
+            <Sparkles />
+
           </div>
 
           <h3>
@@ -69,7 +84,9 @@ function Advantages() {
         <div className="advantage-card">
 
           <div className="advantage-icon">
-            🎥
+
+            <Video />
+
           </div>
 
           <h3>
@@ -86,7 +103,9 @@ function Advantages() {
       </div>
 
     </section>
+
   )
+
 }
 
 export default Advantages
