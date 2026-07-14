@@ -132,6 +132,15 @@ function Header() {
             📞 Контакты
           </Link>
 
+          <Link
+            to="/rules"
+            onClick={scrollTop}
+          >
+            📜 Правила
+          </Link>
+
+          
+
         </nav>
 
       </aside>
