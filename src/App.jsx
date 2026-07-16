@@ -8,6 +8,7 @@ import Contacts from "./pages/Contacts";
 import ScrollTop from "./components/ScrollTop"
 import Faq from "./pages/Faq";
 import Rules from "./pages/Rules"
+import Admin from "./pages/Admin"
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
         <Route 
           path="/rules"
           element={<Rules />} 
+        />
+        <Route 
+          path="/admin" 
+          element={<Admin />}
         />
 
       </Routes>

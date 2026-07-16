@@ -1,0 +1,139 @@
+.edit-window {
+
+  width:100%;
+
+  max-width:650px;
+
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  background:#1e293b;
+
+  border-radius:24px;
+
+  padding:35px;
+
+  box-shadow:
+
+  0 25px 70px rgba(0,0,0,.6);
+
+  color:white;
+
+}
+
+.edit-window h2 {
+
+  margin-top:0;
+
+  margin-bottom:30px;
+
+  font-size:28px;
+
+  color:white;
+
+}
+
+.edit-window label {
+
+  display:block;
+
+  margin-bottom:8px;
+
+  margin-top:18px;
+
+  color:#cbd5e1;
+
+  font-size:14px;
+
+}
+
+.edit-window input,
+
+.edit-window textarea {
+
+  width:100%;
+
+  box-sizing:border-box;
+
+  background:#0f172a;
+
+  border:1px solid #334155;
+
+  border-radius:12px;
+
+  padding:14px;
+
+  color:white;
+
+  font-size:16px;
+
+  outline:none;
+
+  transition:.2s;
+
+}
+
+.edit-window input:focus,
+
+.edit-window textarea:focus {
+
+  border-color:#2563eb;
+
+}
+
+.edit-window textarea {
+
+  min-height:140px;
+
+  resize:vertical;
+
+}
+
+.edit-window button {
+
+  margin-top:25px;
+
+  margin-right:12px;
+
+  padding:14px 24px;
+
+  border:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:15px;
+
+  transition:.25s;
+
+}
+
+.edit-window button:first-of-type {
+
+  background:#2563eb;
+
+  color:white;
+
+}
+
+.edit-window button:first-of-type:hover {
+
+  background:#1d4ed8;
+
+}
+
+.edit-window button:last-of-type {
+
+  background:#334155;
+
+  color:white;
+
+}
+
+.edit-window button:last-of-type:hover {
+
+  background:#475569;
+
+}

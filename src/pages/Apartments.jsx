@@ -1,24 +1,51 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
 import ApartmentCard from "../components/ApartmentCard"
-import apartments from "../data/apartments"
+
+import { getApartments } from "../api/apartments"
+
 import "./Apartments.css"
 
 function Apartments() {
 
+  const [apartments, setApartments] = useState([])
+
   const [search, setSearch] = useState("")
 
-  const filteredApartments = apartments.filter((item) =>
-    item.address
-      .toLowerCase()
+  useEffect(() => {
+
+    async function load() {
+
+      const data = await getApartments()
+
+      console.log("Квартиры с Supabase:", data)
+
+      setApartments(data || [])
+
+    }
+
+    load()
+
+  }, [])
+
+  const filteredApartments = apartments.filter((item) => {
+
+    return item.address
+
+      ?.toLowerCase()
+
       .includes(search.toLowerCase())
-  )
+
+  })
 
   return (
 
     <main className="apartments">
 
       <h1>
+
         Наши квартиры
+
       </h1>
 
       <div className="search-mobile">
@@ -39,29 +66,33 @@ function Apartments() {
 
       <div className="apartments-list">
 
-        {filteredApartments.length > 0 ? (
+        {
 
-          filteredApartments.map((item) => (
+          filteredApartments.length > 0 ? (
 
-            <ApartmentCard
+            filteredApartments.map((item) => (
 
-              key={item.id}
+              <ApartmentCard
 
-              apartment={item}
+                key={item.id}
 
-            />
+                apartment={item}
 
-          ))
+              />
 
-        ) : (
+            ))
 
-          <p className="no-result">
+          ) : (
 
-            Квартира не найдена
+            <p className="no-result">
 
-          </p>
+              Квартиры загружаются или не найдены
 
-        )}
+            </p>
+
+          )
+
+        }
 
       </div>
 

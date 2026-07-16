@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 
-import { 
+import {
   MapPin,
   BedDouble,
   Bath,
@@ -10,7 +11,7 @@ import {
 
 import "./Apartment.css"
 
-import apartments from "../data/apartments"
+import { getApartments } from "../api/apartments"
 
 import Gallery from "../components/apartment/Gallery"
 import Booking from "../components/apartment/Booking"
@@ -20,23 +21,53 @@ function Apartment() {
 
   const { id } = useParams()
 
-  const apartment = apartments.find(
+  const [apartment, setApartment] = useState(null)
 
-    item => item.id === Number(id)
+  useEffect(() => {
 
-  )
+    async function loadApartment() {
+
+      const apartments = await getApartments()
+
+      console.log("Все квартиры:", apartments)
+
+      console.log("ID из адреса:", id)
+
+      const foundApartment = apartments.find(
+
+        item => Number(item.id) === Number(id)
+
+      )
+
+      console.log("Найдена квартира:", foundApartment)
+
+      setApartment(foundApartment)
+
+    }
+
+    loadApartment()
+
+  }, [id])
 
   if (!apartment) {
 
     return (
 
       <h1>
+
         Квартира не найдена
+
       </h1>
 
     )
 
   }
+
+  const photos = apartment.photos?.map(
+
+    photo => photo.url
+
+  ) || []
 
   return (
 
@@ -45,7 +76,9 @@ function Apartment() {
       <section className="apartment-header">
 
         <h1>
+
           {apartment.title}
+
         </h1>
 
         <p className="apartment-address">
@@ -58,11 +91,15 @@ function Apartment() {
 
       </section>
 
-      <Gallery photos={apartment.photos} />
+      <Gallery
+
+        photos={photos}
+
+      />
 
       <Instructions
 
-        instructions={apartment.instructions}
+        instructions={apartment.instructions || []}
 
       />
 
@@ -71,11 +108,15 @@ function Apartment() {
         <div className="description-text">
 
           <h2>
+
             О квартире
+
           </h2>
 
           <p>
+
             {apartment.description}
+
           </p>
 
         </div>
@@ -87,7 +128,9 @@ function Apartment() {
             <BedDouble size={26}/>
 
             <span>
+
               Удобная кровать
+
             </span>
 
           </div>
@@ -97,7 +140,9 @@ function Apartment() {
             <Bath size={26}/>
 
             <span>
+
               Чистая ванная комната
+
             </span>
 
           </div>
@@ -107,7 +152,9 @@ function Apartment() {
             <Wifi size={26}/>
 
             <span>
+
               Wi-Fi
+
             </span>
 
           </div>
@@ -117,7 +164,9 @@ function Apartment() {
             <CookingPot size={26}/>
 
             <span>
+
               Посуда и техника
+
             </span>
 
           </div>

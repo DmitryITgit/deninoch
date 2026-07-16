@@ -16,11 +16,19 @@ function ApartmentCard({ apartment }) {
 
       <img
 
-        src={apartment.photos[0]}
+  src={
+    apartment.photos?.find(
+      photo => photo.is_main
+    )?.url
+    ||
+    apartment.photos?.[0]?.url
+    ||
+    "/no-photo.jpg"
+  }
 
-        alt={apartment.title}
+  alt={apartment.title}
 
-      />
+/>
 
       <div className="card-info">
 

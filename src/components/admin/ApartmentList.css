@@ -1,0 +1,155 @@
+.apartment-list {
+
+  width:100%;
+
+}
+
+.apartment-list h1 {
+
+  font-size:36px;
+
+  margin-bottom:30px;
+
+  color:white;
+
+  font-weight:700;
+
+}
+
+.add-button {
+
+  background:#2563eb;
+
+  color:white;
+
+  border:none;
+
+  padding:14px 25px;
+
+  border-radius:14px;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:.25s;
+
+  margin-bottom:35px;
+
+}
+
+.add-button:hover {
+
+  background:#1d4ed8;
+
+  transform:translateY(-2px);
+
+}
+
+.admin-apartments {
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+
+  gap:25px;
+
+}
+
+.admin-card {
+
+  background:#1e293b;
+
+  border-radius:22px;
+
+  padding:25px;
+
+  box-shadow:
+
+  0 15px 35px rgba(0,0,0,.35);
+
+  transition:.25s;
+
+  border:1px solid rgba(255,255,255,.05);
+
+}
+
+.admin-card:hover {
+
+  transform:translateY(-5px);
+
+  box-shadow:
+
+  0 20px 45px rgba(0,0,0,.5);
+
+}
+
+.admin-card h3 {
+
+  margin:0 0 15px;
+
+  font-size:22px;
+
+  color:white;
+
+}
+
+.admin-card p {
+
+  color:#cbd5e1;
+
+  margin:10px 0;
+
+  font-size:15px;
+
+}
+
+.admin-card button {
+
+  margin-top:20px;
+
+  margin-right:10px;
+
+  padding:12px 18px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#2563eb;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  transition:.25s;
+
+}
+
+.admin-card button:hover {
+
+  background:#3b82f6;
+
+}
+
+.edit-overlay {
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.65);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:100;
+
+  padding:20px;
+
+}
