@@ -217,12 +217,62 @@ function PhotoManager({ apartmentId }) {
 
   if(!answer) return
 
+  // 1. Получаем данные фото
+
+  const { data: photo, error: getError } = await supabase
+
+    .from("photos")
+
+    .select("url")
+
+    .eq("id", id)
+
+    .single()
+
+  if(getError){
+
+    console.log(
+      "Ошибка получения фото:",
+      getError
+    )
+
+    return
+
+  }
+
+  // 2. Достаём имя файла из URL
+
+  const fileName = photo.url
+
+    .split("/photos/")[1]
+
   console.log(
-    "Нажата кнопка удаления. ID:",
-    id
+    "Удаляем файл:",
+    fileName
   )
 
-  const response = await supabase
+  // 3. Удаляем файл из Storage
+
+  const { error: storageError } = await supabase.storage
+
+    .from("photos")
+
+    .remove([
+      fileName
+    ])
+
+  if(storageError){
+
+    console.log(
+      "Ошибка удаления из Storage:",
+      storageError
+    )
+
+  }
+
+  // 4. Удаляем запись из таблицы
+
+  const { error: dbError } = await supabase
 
     .from("photos")
 
@@ -230,21 +280,20 @@ function PhotoManager({ apartmentId }) {
 
     .eq("id", id)
 
-  console.log(
-    "Ответ Supabase:",
-    response
-  )
-
-  if(response.error){
+  if(dbError){
 
     console.log(
-      "Ошибка удаления:",
-      response.error
+      "Ошибка удаления записи:",
+      dbError
     )
 
     return
 
   }
+
+  console.log(
+    "Фото полностью удалено"
+  )
 
   await reloadPhotos()
 
