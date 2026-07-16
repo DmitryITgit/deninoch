@@ -135,91 +135,60 @@ function PhotoManager({ apartmentId }) {
 
   async function setMainPhoto(id){
 
-    const { error: resetError } = await supabase
+  const reset = await supabase
+    .from("photos")
+    .update({
+      is_main:false
+    })
+    .eq("apartment_id", apartmentId)
 
-      .from("photos")
+  console.log("RESET:", reset)
 
-      .update({
+  const main = await supabase
+    .from("photos")
+    .update({
+      is_main:true
+    })
+    .eq("id", id)
 
-        is_main:false
+  console.log("MAIN:", main)
 
-      })
+  if(main.error){
 
-      .eq(
-        "apartment_id",
-        apartmentId
-      )
+    console.log(main.error)
 
-    if(resetError){
-
-      console.log(resetError)
-
-      return
-
-    }
-
-    const { error: mainError } = await supabase
-
-      .from("photos")
-
-      .update({
-
-        is_main:true
-
-      })
-
-      .eq(
-        "id",
-        id
-      )
-
-    if(mainError){
-
-      console.log(mainError)
-
-      return
-
-    }
-
-    await refreshPhotos()
+    return
 
   }
+
+  await refreshPhotos()
+
+}
 
   async function deletePhoto(id){
 
-    const result = window.confirm(
+  const result = window.confirm("Удалить это фото?")
 
-      "Удалить это фото?"
+  if(!result) return
 
-    )
+  const response = await supabase
+    .from("photos")
+    .delete()
+    .eq("id", id)
 
-    if(!result) return
+  console.log("DELETE:", response)
 
-    const { error } = await supabase
+  if(response.error){
 
-      .from("photos")
+    console.log(response.error)
 
-      .delete()
-
-      .eq(
-        "id",
-        id
-      )
-
-    if(error){
-
-      console.log(
-        "Ошибка удаления:",
-        error
-      )
-
-      return
-
-    }
-
-    await refreshPhotos()
+    return
 
   }
+
+  await refreshPhotos()
+
+}
 
   return (
 
@@ -325,5 +294,3 @@ function PhotoManager({ apartmentId }) {
 }
 
 export default PhotoManager
-
-  
