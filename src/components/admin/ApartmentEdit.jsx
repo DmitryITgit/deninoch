@@ -10,19 +10,19 @@ function ApartmentEdit({ apartment, close }) {
 
   const [form, setForm] = useState({
 
-    title: apartment.title,
+    title: apartment.title || "",
 
-    address: apartment.address,
+    address: apartment.address || "",
 
-    price: apartment.price,
+    price: apartment.price || "",
 
-    description: apartment.description
+    description: apartment.description || ""
 
   })
 
   const [loading, setLoading] = useState(false)
 
-  function change(e) {
+  function change(e){
 
     setForm({
 
@@ -34,11 +34,11 @@ function ApartmentEdit({ apartment, close }) {
 
   }
 
-  async function save() {
+  async function save(){
 
     setLoading(true)
 
-    await updateApartment(
+    const result = await updateApartment(
 
       apartment.id,
 
@@ -46,11 +46,14 @@ function ApartmentEdit({ apartment, close }) {
 
     )
 
+    console.log(
+      "Обновление:",
+      result
+    )
+
     setLoading(false)
 
     close()
-
-    window.location.reload()
 
   }
 
@@ -58,77 +61,107 @@ function ApartmentEdit({ apartment, close }) {
 
     <div className="edit-window">
 
-      <h2>
+      <div className="edit-header">
 
-        Редактирование квартиры
+        <h2>
 
-      </h2>
+          Редактирование квартиры
 
-      <label>
+        </h2>
 
-        Название
+        <button
 
-      </label>
+          type="button"
 
-      <input
+          className="close-button"
 
-        name="title"
+          onClick={close}
 
-        value={form.title}
+        >
 
-        onChange={change}
+          ✕
 
-      />
+        </button>
 
-      <label>
+      </div>
 
-        Адрес
+      <div className="edit-form">
 
-      </label>
+        <label>
 
-      <input
+          Название
 
-        name="address"
+        </label>
 
-        value={form.address}
+        <input
 
-        onChange={change}
+          name="title"
 
-      />
+          value={form.title}
 
-      <label>
+          onChange={change}
 
-        Цена
+        />
 
-      </label>
+        <label>
 
-      <input
+          Адрес
 
-        name="price"
+        </label>
 
-        value={form.price}
+        <input
 
-        onChange={change}
+          name="address"
 
-      />
+          value={form.address}
 
-      <label>
+          onChange={change}
 
-        Описание
+        />
 
-      </label>
+        <label>
 
-      <textarea
+          Цена
 
-        name="description"
+        </label>
 
-        value={form.description}
+        <input
 
-        onChange={change}
+          name="price"
 
-      />
+          value={form.price}
 
-      <button onClick={save}>
+          onChange={change}
+
+        />
+
+        <label>
+
+          Описание
+
+        </label>
+
+        <textarea
+
+          name="description"
+
+          value={form.description}
+
+          onChange={change}
+
+        />
+
+      </div>
+
+      <button
+
+        type="button"
+
+        className="save-button"
+
+        onClick={save}
+
+      >
 
         {
 
@@ -139,12 +172,6 @@ function ApartmentEdit({ apartment, close }) {
           : "Сохранить"
 
         }
-
-      </button>
-
-      <button onClick={close}>
-
-        Закрыть
 
       </button>
 

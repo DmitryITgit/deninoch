@@ -2,55 +2,84 @@
 
   width:100%;
 
-  max-width:650px;
+  max-width:750px;
 
   max-height:90vh;
 
   overflow-y:auto;
 
+  overflow-x:hidden;
+
   background:#1e293b;
 
   border-radius:24px;
 
-  padding:35px;
+  padding:30px;
 
   box-shadow:
-
-  0 25px 70px rgba(0,0,0,.6);
+    0 25px 70px rgba(0,0,0,.6);
 
   color:white;
 
+  position:relative;
+
+  z-index:100;
+
 }
 
-.edit-window h2 {
+.edit-header {
 
-  margin-top:0;
+  display:flex;
 
-  margin-bottom:30px;
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:25px;
+
+}
+
+.edit-header h2 {
+
+  margin:0;
 
   font-size:28px;
 
+}
+
+.close-button {
+
+  background:#dc2626 !important;
+
   color:white;
+
+  width:40px;
+
+  height:40px;
+
+  padding:0 !important;
+
+  margin:0 !important;
+
+  border-radius:50% !important;
 
 }
 
-.edit-window label {
+.edit-form label {
 
   display:block;
 
-  margin-bottom:8px;
-
   margin-top:18px;
+
+  margin-bottom:8px;
 
   color:#cbd5e1;
 
-  font-size:14px;
-
 }
 
-.edit-window input,
+.edit-form input,
 
-.edit-window textarea {
+.edit-form textarea {
 
   width:100%;
 
@@ -68,21 +97,9 @@
 
   font-size:16px;
 
-  outline:none;
-
-  transition:.2s;
-
 }
 
-.edit-window input:focus,
-
-.edit-window textarea:focus {
-
-  border-color:#2563eb;
-
-}
-
-.edit-window textarea {
+.edit-form textarea {
 
   min-height:140px;
 
@@ -90,13 +107,13 @@
 
 }
 
-.edit-window button {
+.save-button {
+
+  width:100%;
 
   margin-top:25px;
 
-  margin-right:12px;
-
-  padding:14px 24px;
+  padding:15px;
 
   border:none;
 
@@ -104,36 +121,40 @@
 
   cursor:pointer;
 
-  font-size:15px;
-
-  transition:.25s;
-
-}
-
-.edit-window button:first-of-type {
-
   background:#2563eb;
 
   color:white;
 
+  font-size:16px;
+
+  position:relative;
+
+  z-index:200;
+
 }
 
-.edit-window button:first-of-type:hover {
+.save-button:hover {
 
   background:#1d4ed8;
 
 }
 
-.edit-window button:last-of-type {
+/* важно для фото */
 
-  background:#334155;
+.photo-manager {
 
-  color:white;
+  position:relative;
+
+  z-index:200;
 
 }
 
-.edit-window button:last-of-type:hover {
+.photo-manager button {
 
-  background:#475569;
+  position:relative;
+
+  z-index:300;
+
+  pointer-events:auto;
 
 }

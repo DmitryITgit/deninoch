@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 
 import { supabase } from "../../api/supabase"
 
@@ -10,7 +10,11 @@ function PhotoManager({ apartmentId }) {
 
   const [loading, setLoading] = useState(false)
 
-  const getPhotos = useCallback(async () => {
+  async function reloadPhotos(){
+
+  console.log(
+    "Обновляем список фото..."
+  )
 
   const { data, error } = await supabase
 
@@ -20,46 +24,62 @@ function PhotoManager({ apartmentId }) {
 
     .eq("apartment_id", apartmentId)
 
-    .order("id", { ascending: true })
+    .order("id", { ascending:true })
+
+  console.log(
+    "Фото после обновления:",
+    data
+  )
 
   if(error){
 
     console.log(
-      "Ошибка загрузки фото:",
+      "Ошибка загрузки:",
       error
     )
 
-    return []
+    return
 
   }
 
-  return data || []
+  setPhotos(data || [])
 
-}, [apartmentId])
+}
 
   useEffect(() => {
 
-  if(!apartmentId) return
+    if(!apartmentId) return
 
-  async function startLoad(){
+    async function load(){
 
-    const data = await getPhotos()
+      const { data, error } = await supabase
 
-    setPhotos(data)
+        .from("photos")
 
-  }
+        .select("*")
 
-  startLoad()
+        .eq("apartment_id", apartmentId)
 
-}, [apartmentId, getPhotos])
+        .order("id", { ascending:true })
 
-  async function refreshPhotos(){
+      if(error){
 
-    const data = await getPhotos()
+        console.log(
+          "Ошибка загрузки:",
+          error
+        )
 
-    setPhotos(data)
+        return
 
-  }
+      }
+
+      setPhotos(data || [])
+
+    }
+
+    load()
+
+  }, [apartmentId])
 
   async function uploadPhotos(event){
 
@@ -75,7 +95,7 @@ function PhotoManager({ apartmentId }) {
 
       const fileName =
 
-        `${crypto.randomUUID()}-${file.name}`
+        `${Date.now()}-${file.name}`
 
       const { error: uploadError } = await supabase.storage
 
@@ -94,7 +114,7 @@ function PhotoManager({ apartmentId }) {
 
       }
 
-      const { data: urlData } = supabase.storage
+      const { data } = supabase.storage
 
         .from("photos")
 
@@ -108,7 +128,7 @@ function PhotoManager({ apartmentId }) {
 
           apartment_id: apartmentId,
 
-          url: urlData.publicUrl,
+          url:data.publicUrl,
 
           is_main:false
 
@@ -125,7 +145,7 @@ function PhotoManager({ apartmentId }) {
 
     }
 
-    await refreshPhotos()
+    await reloadPhotos()
 
     setLoading(false)
 
@@ -135,58 +155,98 @@ function PhotoManager({ apartmentId }) {
 
   async function setMainPhoto(id){
 
-  const reset = await supabase
-    .from("photos")
-    .update({
-      is_main:false
-    })
-    .eq("apartment_id", apartmentId)
+    const reset = await supabase
 
-  console.log("RESET:", reset)
+      .from("photos")
 
-  const main = await supabase
-    .from("photos")
-    .update({
-      is_main:true
-    })
-    .eq("id", id)
+      .update({
 
-  console.log("MAIN:", main)
+        is_main:false
 
-  if(main.error){
+      })
 
-    console.log(main.error)
+      .eq(
+        "apartment_id",
+        apartmentId
+      )
 
-    return
+    if(reset.error){
+
+      console.log(
+        reset.error
+      )
+
+      return
+
+    }
+
+    const main = await supabase
+
+      .from("photos")
+
+      .update({
+
+        is_main:true
+
+      })
+
+      .eq(
+        "id",
+        id
+      )
+
+    if(main.error){
+
+      console.log(
+        main.error
+      )
+
+      return
+
+    }
+
+    await reloadPhotos()
 
   }
-
-  await refreshPhotos()
-
-}
 
   async function deletePhoto(id){
 
-  const result = window.confirm("Удалить это фото?")
+  const answer = window.confirm(
+    "Удалить это фото?"
+  )
 
-  if(!result) return
+  if(!answer) return
+
+  console.log(
+    "Нажата кнопка удаления. ID:",
+    id
+  )
 
   const response = await supabase
+
     .from("photos")
+
     .delete()
+
     .eq("id", id)
 
-  console.log("DELETE:", response)
+  console.log(
+    "Ответ Supabase:",
+    response
+  )
 
   if(response.error){
 
-    console.log(response.error)
+    console.log(
+      "Ошибка удаления:",
+      response.error
+    )
 
     return
 
   }
 
-  await refreshPhotos()
+  await reloadPhotos()
 
 }
 
@@ -195,7 +255,9 @@ function PhotoManager({ apartmentId }) {
     <div className="photo-manager">
 
       <h3>
+
         Фотографии квартиры
+
       </h3>
 
       <input
@@ -211,7 +273,6 @@ function PhotoManager({ apartmentId }) {
       />
 
       {
-
         loading &&
 
         <p>
@@ -225,7 +286,6 @@ function PhotoManager({ apartmentId }) {
       <div className="photo-list">
 
         {
-
           photos.map(photo => (
 
             <div
@@ -245,7 +305,6 @@ function PhotoManager({ apartmentId }) {
               />
 
               {
-
                 photo.is_main &&
 
                 <div className="main-photo">
@@ -258,9 +317,9 @@ function PhotoManager({ apartmentId }) {
 
               <button
 
-                onClick={() =>
-                  setMainPhoto(photo.id)
-                }
+                type="button"
+
+                onClick={() => setMainPhoto(photo.id)}
 
               >
 
@@ -270,12 +329,10 @@ function PhotoManager({ apartmentId }) {
 
               <button
 
-                onClick={() =>
-                  deletePhoto(photo.id)
-                }
+                type="button"
 
-              >
-
+                onClick={() => deletePhoto(photo.id)}>
+                
                 Удалить
 
               </button>
@@ -291,6 +348,7 @@ function PhotoManager({ apartmentId }) {
     </div>
 
   )
+
 }
 
-export default PhotoManager
+export default PhotoManager 
