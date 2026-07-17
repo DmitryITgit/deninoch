@@ -76,6 +76,12 @@ function Header() {
               Правила
             </Link>
 
+            <Link to="/Cooperation" onClick={scrollTop}>
+              Сотрудничество
+            </Link>
+
+
+
           </nav>
 
           <button
@@ -176,6 +182,17 @@ function Header() {
             <FileText />
 
             Правила
+
+          </Link>
+
+          <Link
+            to="/cooperation"
+            onClick={scrollTop}
+          >
+
+            <FileText />
+
+            Сотрудничество
 
           </Link>
 

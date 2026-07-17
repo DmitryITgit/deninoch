@@ -1,0 +1,532 @@
+.cooperation {
+
+  max-width:1000px;
+
+  margin:120px auto 60px;
+
+  padding:0 25px;
+
+  box-sizing:border-box;
+
+}
+
+.phone-flip {
+
+  width:100%;
+
+  height:55px;
+
+  margin-top:30px;
+
+  perspective:1000px;
+
+  cursor:pointer;
+
+}
+
+.phone-inner {
+
+  width:100%;
+
+  height:100%;
+
+  position:relative;
+
+  transition:.6s;
+
+  transform-style:preserve-3d;
+
+}
+
+.phone-flip.active .phone-inner {
+
+  transform:rotateY(180deg);
+
+}
+
+.phone-back {
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:18px;
+
+  backface-visibility:hidden;
+
+  font-size:16px;
+
+  font-weight:500;
+
+}
+
+.phone-front {
+
+  background:#8f7355;
+
+  color:white;
+
+  gap:10px;
+
+}
+
+.phone-back {
+
+  background:#222;
+
+  color:white;
+
+  transform:rotateY(180deg);
+
+  flex-direction:column;
+
+  text-decoration:none;
+
+}
+
+.phone-back small {
+
+  font-size:12px;
+
+  margin-top:4px;
+
+  opacity:.7;
+
+}
+
+/* HERO */
+
+.cooperation-hero {
+
+  overflow:hidden;
+
+  background:rgba(255,255,255,.75);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:25px;
+
+  border:1px solid rgba(0,0,0,.06);
+
+  box-shadow:
+
+    0 10px 30px rgba(0,0,0,.06);
+
+  animation:showCooperation .7s ease;
+
+}
+
+.cooperation-hero img {
+
+  width:100%;
+
+  height:420px;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  display:block;
+
+  animation:heroZoom 8s ease forwards;
+
+}
+
+@keyframes heroZoom {
+
+  from {
+
+    transform:scale(1);
+
+  }
+
+  to {
+
+    transform:scale(1.08);
+
+  }
+
+}
+
+.cooperation-hero-text {
+
+  padding:40px;
+
+  text-align:center;
+
+}
+
+.cooperation-hero-text h1 {
+
+  margin:0 0 20px;
+
+  font-size:42px;
+
+  color:#222;
+
+}
+
+.cooperation-hero-text p {
+
+  margin:0;
+
+  color:#666;
+
+  font-size:18px;
+
+  line-height:1.6;
+
+}
+
+/* ОСНОВНЫЕ БЛОКИ */
+
+.cooperation-block {
+
+  margin-top:25px;
+
+  padding:35px;
+
+  background:rgba(255,255,255,.75);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:22px;
+
+  border:1px solid rgba(0,0,0,.06);
+
+  box-shadow:
+
+    0 10px 30px rgba(0,0,0,.05);
+
+  animation:showCooperation .6s ease backwards;
+
+}
+
+.cooperation-block:nth-child(2){
+
+  animation-delay:.2s;
+
+}
+
+.cooperation-block:nth-child(3){
+
+  animation-delay:.3s;
+
+}
+
+.cooperation-block h2 {
+
+  margin-top:0;
+
+  margin-bottom:20px;
+
+  font-size:28px;
+
+  color:#222;
+
+}
+
+.cooperation-block p {
+
+  color:#666;
+
+  font-size:16px;
+
+  line-height:1.6;
+
+}
+
+.cooperation-block ul {
+
+  padding-left:20px;
+
+}
+
+.cooperation-block li {
+
+  margin-bottom:12px;
+
+  color:#555;
+
+  line-height:1.5;
+
+}
+
+/* ДВЕ КОЛОНКИ */
+
+.cooperation-columns {
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:20px;
+
+  margin-top:25px;
+
+}
+
+.cooperation-columns > div {
+
+  padding:30px;
+
+  background:rgba(255,255,255,.75);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:22px;
+
+  border:1px solid rgba(0,0,0,.06);
+
+  box-shadow:
+
+    0 10px 30px rgba(0,0,0,.05);
+
+  animation:showCooperation .6s ease backwards;
+
+}
+
+.cooperation-columns > div:nth-child(1){
+
+  animation-delay:.4s;
+
+}
+
+.cooperation-columns > div:nth-child(2){
+
+  animation-delay:.5s;
+
+}
+
+.cooperation-columns h3 {
+
+  margin-top:0;
+
+  font-size:24px;
+
+  color:#222;
+
+}
+
+.cooperation-columns ul {
+
+  padding-left:20px;
+
+}
+
+.cooperation-columns li {
+
+  margin-bottom:12px;
+
+  color:#555;
+
+}
+
+/* ФИНАЛ */
+
+.cooperation-final {
+
+  margin-top:25px;
+
+  padding:40px 30px;
+
+  text-align:center;
+
+  background:rgba(255,255,255,.75);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:25px;
+
+  border:1px solid rgba(0,0,0,.06);
+
+  box-shadow:
+
+    0 10px 30px rgba(0,0,0,.05);
+
+  animation:showCooperation .6s ease backwards;
+
+  animation-delay:.6s;
+
+}
+
+.cooperation-final h2 {
+
+  margin-top:0;
+
+  font-size:30px;
+
+  color:#222;
+
+}
+
+.cooperation-final p {
+
+  color:#666;
+
+  font-size:17px;
+
+}
+
+.cooperation-final button {
+
+  margin-top:20px;
+
+  padding:14px 35px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#b08b5c;
+
+  color:white;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.cooperation-final button:hover {
+
+  background:#967344;
+
+  transform:translateY(-3px);
+
+}
+
+/* ТЕЛЕФОН */
+
+.phone-box {
+
+  margin:20px auto 0;
+
+  width:max-content;
+
+  max-width:90%;
+
+  padding:18px 30px;
+
+  background:white;
+
+  border-radius:15px;
+
+  color:#222;
+
+  font-size:22px;
+
+  font-weight:600;
+
+  box-shadow:
+
+    0 10px 25px rgba(0,0,0,.12);
+
+  animation:phoneShow .4s ease;
+
+}
+
+@keyframes phoneShow {
+
+  from {
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+/* АНИМАЦИЯ ПОЯВЛЕНИЯ */
+
+@keyframes showCooperation {
+
+  from {
+
+    opacity:0;
+
+    transform:translateX(-40px);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:translateX(0);
+
+  }
+
+}
+
+/* ТЕЛЕФОН */
+
+@media(max-width:700px){
+
+  .cooperation {
+
+    margin-top:100px;
+
+    padding:0 15px;
+
+  }
+
+  .cooperation-hero img {
+
+    height:250px;
+
+  }
+
+  .cooperation-hero-text {
+
+    padding:25px 20px;
+
+  }
+
+  .cooperation-hero-text h1 {
+
+    font-size:30px;
+
+  }
+
+  .cooperation-block {
+
+    padding:25px 20px;
+
+  }
+
+  .cooperation-columns {
+
+    grid-template-columns:1fr;
+
+  }
+
+  .phone-box {
+
+    font-size:18px;
+
+    padding:15px 20px;
+
+  }
+
+  
+
+}
+

@@ -9,6 +9,7 @@ import ScrollTop from "./components/ScrollTop"
 import Faq from "./pages/Faq";
 import Rules from "./pages/Rules"
 import Admin from "./pages/Admin"
+import Cooperation from "./pages/Cooperation"
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
         <Route 
           path="/admin" 
           element={<Admin />}
+        />
+
+        <Route 
+          path="/cooperation" 
+          element={<Cooperation />}
         />
 
       </Routes>
