@@ -146,11 +146,11 @@ function ApartmentList() {
           <div className="edit-overlay">
 
             <ApartmentEdit
-
               apartment={selectedApartment}
-
-              close={() => setSelectedApartment(null)}
-
+              close={() => {
+                setSelectedApartment(null)
+                refreshApartments()
+              }}
             />
 
           </div>

@@ -158,3 +158,11 @@
   pointer-events:auto;
 
 }
+
+.video-manager {
+
+  position:relative;
+
+  z-index:200;
+
+}

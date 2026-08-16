@@ -82,11 +82,24 @@ function Admin() {
 
   }
 
+  async function logout() {
+    await supabase.auth.signOut()
+  }
+
   return (
 
     <main className="admin">
 
       <section className="admin-content">
+
+        <div className="admin-toolbar">
+          <span>
+            {session.user?.email}
+          </span>
+          <button type="button" onClick={logout}>
+            Выйти
+          </button>
+        </div>
 
         <ApartmentList />
 

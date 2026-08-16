@@ -11,7 +11,7 @@ import {
 
 import "./Apartment.css"
 
-import { getApartments } from "../api/apartments"
+import { getApartmentById } from "../api/apartments"
 
 import Gallery from "../components/apartment/Gallery"
 import Booking from "../components/apartment/Booking"
@@ -22,45 +22,33 @@ function Apartment() {
   const { id } = useParams()
 
   const [apartment, setApartment] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-
     async function loadApartment() {
-
-      const apartments = await getApartments()
-
-      console.log("Все квартиры:", apartments)
-
-      console.log("ID из адреса:", id)
-
-      const foundApartment = apartments.find(
-
-        item => Number(item.id) === Number(id)
-
-      )
-
-      console.log("Найдена квартира:", foundApartment)
-
+      setLoading(true)
+      const foundApartment = await getApartmentById(id)
       setApartment(foundApartment)
-
+      setLoading(false)
     }
 
     loadApartment()
-
   }, [id])
 
-  if (!apartment) {
-
+  if (loading) {
     return (
-
       <h1>
-
-        Квартира не найдена
-
+        Загрузка...
       </h1>
-
     )
+  }
 
+  if (!apartment) {
+    return (
+      <h1>
+        Квартира не найдена
+      </h1>
+    )
   }
 
   const photos = apartment.photos?.map(
@@ -98,9 +86,7 @@ function Apartment() {
       />
 
       <Instructions
-
-        instructions={apartment.instructions || []}
-
+        instructions={apartment.instructions}
       />
 
       <section className="description">

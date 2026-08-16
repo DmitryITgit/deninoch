@@ -23,3 +23,21 @@
   width:100%;
 
 }
+
+.admin-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  color: #94a3b8;
+}
+
+.admin-toolbar button {
+  background: #334155;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+}

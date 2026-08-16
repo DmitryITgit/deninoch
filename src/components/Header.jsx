@@ -76,7 +76,7 @@ function Header() {
               Правила
             </Link>
 
-            <Link to="/Cooperation" onClick={scrollTop}>
+            <Link to="/cooperation" onClick={scrollTop}>
               Сотрудничество
             </Link>
 

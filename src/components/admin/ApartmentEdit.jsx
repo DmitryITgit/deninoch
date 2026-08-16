@@ -3,6 +3,7 @@ import { useState } from "react"
 import { updateApartment } from "../../api/admin"
 
 import PhotoManager from "./PhotoManager"
+import VideoManager from "./VideoManager"
 
 import "./ApartmentEdit.css"
 
@@ -176,9 +177,11 @@ function ApartmentEdit({ apartment, close }) {
       </button>
 
       <PhotoManager
-
         apartmentId={apartment.id}
+      />
 
+      <VideoManager
+        apartmentId={apartment.id}
       />
 
     </div>

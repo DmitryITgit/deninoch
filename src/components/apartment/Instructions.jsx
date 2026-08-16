@@ -2,7 +2,7 @@ import "./Instructions.css"
 
 function Instructions({ instructions }) {
 
-  if (!instructions) return null
+  if (!instructions?.length) return null
 
   return (
 
