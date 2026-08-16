@@ -80,6 +80,7 @@ h3,
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
+  border-radius: 999px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -89,14 +90,25 @@ h3,
 }
 
 .btn-gold-fill {
-  background: var(--gold);
-  color: var(--night);
-  border-color: var(--gold);
+  background: linear-gradient(135deg, #e08a3c, #c4a36a);
+  color: #1a120c;
+  border-color: transparent;
 }
 
 .btn-gold-fill:hover {
-  background: transparent;
-  color: var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 .page-status {
@@ -122,5 +134,10 @@ h3,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

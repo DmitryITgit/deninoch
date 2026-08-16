@@ -64,15 +64,20 @@ function Header() {
             ))}
           </nav>
 
-          <button
-            type="button"
-            className={`burger ${menuOpen ? "active" : ""}`}
-            aria-label="Меню"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span></span>
-            <span></span>
-          </button>
+          <div className="header-actions">
+            <a className="header-cta" href="tel:+79539836853">
+              Позвонить
+            </a>
+            <button
+              type="button"
+              className={`burger ${menuOpen ? "active" : ""}`}
+              aria-label="Меню"
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -90,6 +95,9 @@ function Header() {
             </Link>
           ))}
         </nav>
+        <a className="btn-gold-fill" href="tel:+79539836853" onClick={closeMenu}>
+          Позвонить
+        </a>
       </aside>
     </>
   )

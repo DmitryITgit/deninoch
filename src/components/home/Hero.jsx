@@ -16,9 +16,10 @@ function Hero() {
       </picture>
 
       <div className="hero-overlay" />
+      <div className="hero-glow" />
 
       <div className="hero-content">
-        <p className="section-kicker">Ульяновск</p>
+        <p className="section-kicker">Ульяновск · День и ночь</p>
         <h1>
           Квартиры, в которых
           <br />
@@ -28,9 +29,14 @@ function Hero() {
           Тихие интерьеры, свежее бельё и заселение по коду —
           без ожидания ключей и лишней суеты.
         </p>
-        <Link to="/apartments" className="btn-gold">
-          Выбрать квартиру
-        </Link>
+        <div className="hero-actions">
+          <Link to="/apartments" className="btn-gold-fill">
+            Выбрать квартиру
+          </Link>
+          <a href="tel:+79539836853" className="btn-gold">
+            Позвонить
+          </a>
+        </div>
       </div>
 
       <div className="hero-bar">
