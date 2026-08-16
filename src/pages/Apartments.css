@@ -1,267 +1,63 @@
 .apartments {
+  padding: calc(var(--header-h) + 48px) 40px 100px;
+  background: var(--ivory);
+}
 
-  padding: 50px 80px;
-
+.apartments-head {
+  max-width: 720px;
+  margin-bottom: 40px;
 }
 
 .apartments h1 {
-
-  font-size:40px;
-
-  margin-bottom:30px;
-
-  animation: apartmentsTitle .7s ease;
-
+  margin: 0 0 14px;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 0.95;
 }
 
-/* Сетка квартир */
+.apartments-head p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.apartments-search {
+  max-width: 420px;
+  margin-bottom: 48px;
+}
+
+.apartments-search input {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+  outline: none;
+}
+
+.apartments-search input:focus {
+  border-bottom-color: var(--gold);
+}
 
 .apartments-list {
-
-  display:grid;
-
-  grid-template-columns:repeat(auto-fill, 300px);
-
-  gap:30px;
-
-  justify-content:start;
-
-}
-
-/* Плавное появление карточек */
-
-.apartments-list > * {
-
-  animation: showApartment .6s ease backwards;
-
-}
-
-.apartments-list > *:nth-child(1){
-  animation-delay:.1s;
-}
-
-.apartments-list > *:nth-child(2){
-  animation-delay:.2s;
-}
-
-.apartments-list > *:nth-child(3){
-  animation-delay:.3s;
-}
-
-.apartments-list > *:nth-child(4){
-  animation-delay:.4s;
-}
-
-.apartments-list > *:nth-child(5){
-  animation-delay:.5s;
-}
-
-.apartments-list > *:nth-child(6){
-  animation-delay:.6s;
-}
-
-/* Поиск */
-
-.search-mobile {
-
-  display:none;
-
-}
-
-/* Информация */
-
-.apartment-info {
-
-  display:flex;
-
-  gap:20px;
-
-  margin-top:25px;
-
-  font-size:18px;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 28px;
 }
 
 .no-result {
-
-  font-size:18px;
-
-  margin-top:20px;
-
+  color: var(--muted);
+  font-size: 16px;
 }
 
-/* Планшет */
-
-@media(max-width:900px){
-
+@media (max-width: 800px) {
   .apartments {
-
-    padding:40px 30px;
-
+    padding: calc(var(--header-h) + 28px) 20px 80px;
   }
 
   .apartments-list {
-
-    grid-template-columns:repeat(auto-fill, 300px);
-
-    gap:20px;
-
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
-
-}
-
-/* Телефон */
-
-@media(max-width:700px){
-
-  .apartments {
-
-    padding:30px 15px;
-
-  }
-
-  .apartments h1 {
-
-    font-size:32px;
-
-    margin-bottom:20px;
-
-  }
-
-  /* Поиск */
-
-  .search-mobile {
-
-    display:block;
-
-    margin-bottom:30px;
-
-    animation: showSearch .7s ease;
-
-  }
-
-  .search-mobile input {
-
-    width:100%;
-
-    height:50px;
-
-    padding:0 18px;
-
-    box-sizing:border-box;
-
-    border-radius:25px;
-
-    border:1px solid #ddd;
-
-    font-size:16px;
-
-    outline:none;
-
-    background:white;
-
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-
-  }
-
-  .search-mobile input:focus {
-
-    border-color:#b08b5c;
-
-  }
-
-  /* 2 квартиры в ряд */
-
-  .apartments-list {
-
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-
-    gap:12px;
-
-  }
-
-  .apartment-info {
-
-    font-size:13px;
-
-    gap:8px;
-
-    margin-top:10px;
-
-  }
-
-}
-
-/* Маленькие телефоны */
-
-@media(max-width:380px){
-
-  .apartments-list {
-
-    grid-template-columns:1fr;
-
-  }
-
-}
-
-/* Анимации */
-
-@keyframes showApartment {
-
-  from {
-
-    opacity:0;
-
-    transform:translateY(40px) scale(.97);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:translateY(0) scale(1);
-
-  }
-
-}
-
-@keyframes apartmentsTitle {
-
-  from {
-
-    opacity:0;
-
-    transform:translateY(-25px);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:translateY(0);
-
-  }
-
-}
-
-@keyframes showSearch {
-
-  from {
-
-    opacity:0;
-
-    transform:translateY(-20px);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:translateY(0);
-
-  }
-
 }

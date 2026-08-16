@@ -19,6 +19,7 @@ function Rules() {
 
       <div className="rules-box">
 
+        <p className="section-kicker">Проживание</p>
         <h1>
           Правила проживания
         </h1>

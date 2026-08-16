@@ -1,112 +1,76 @@
 .advantages {
-  padding: 90px 30px;
+  padding: 110px 40px;
+  background: var(--ivory);
+  content-visibility: auto;
+  contain-intrinsic-size: 700px;
+}
+
+.advantages-head {
+  max-width: 720px;
+  margin: 0 auto 70px;
   text-align: center;
-   background:
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #f7f1e8 100%
-    );
 }
 
 .advantages h2 {
-  font-size: 42px;
-  margin-bottom: 15px;
+  margin: 0 0 18px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
 }
 
 .advantages-subtitle {
-  max-width: 650px;
-  margin: 0 auto 50px;
-
-  color: #666;
-  font-size: 18px;
-}
-
-.advantage-icon svg {
-
-  width:36px;
-
-  height:36px;
-
-  color:#b08b5c;
-
-  stroke-width:1.8;
-
+  margin: 0 auto;
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .advantages-grid {
-
   max-width: 1200px;
-
   margin: 0 auto;
-
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
-  gap: 25px;
-
 }
 
 .advantage-card {
-
-  padding: 35px 25px;
-
-  border-radius: 22px;
-
-  border: 1px solid #eee;
-
-  background: white;
-
-  transition: .3s;
-
+  padding: 28px 28px 8px 0;
+  border-top: 1px solid var(--line);
 }
 
-.advantage-card:hover {
-
-  transform: translateY(-7px);
-
-  box-shadow:
-  0 15px 35px rgba(0,0,0,.08);
-
-}
-
-.advantage-icon {
-
-  font-size: 45px;
-
-  margin-bottom: 20px;
-
+.advantage-card span {
+  display: block;
+  margin-bottom: 28px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
 }
 
 .advantage-card h3 {
-
-  font-size: 22px;
-
-  margin-bottom: 15px;
-
+  margin: 0 0 14px;
+  font-size: 28px;
+  line-height: 1.15;
 }
 
 .advantage-card p {
-
-  color: #666;
-
-  line-height: 1.5;
-
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 15px;
 }
 
-@media(max-width:900px){
-
-  .advantages-grid {
-    grid-template-columns: repeat(2,1fr);
+@media (max-width: 900px) {
+  .advantages {
+    padding: 80px 20px;
   }
 
+  .advantages-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+  }
 }
 
-@media(max-width:600px){
-
+@media (max-width: 600px) {
   .advantages-grid {
     grid-template-columns: 1fr;
   }
-
 }

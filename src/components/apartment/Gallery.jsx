@@ -40,11 +40,10 @@ function Gallery({ photos = [] }) {
         >
 
           <img
-
             src={photos[0]}
-
             alt="Квартира"
-
+            fetchPriority="high"
+            decoding="async"
           />
 
         </div>
@@ -64,11 +63,10 @@ function Gallery({ photos = [] }) {
             >
 
               <img
-
                 src={photo}
-
                 alt="Квартира"
-
+                loading="lazy"
+                decoding="async"
               />
 
             </div>
@@ -152,11 +150,10 @@ function Gallery({ photos = [] }) {
                 >
 
                   <img
-
                     src={photo}
-
                     alt={`Фото ${index + 1}`}
-
+                    loading="lazy"
+                    decoding="async"
                   />
 
                 </div>

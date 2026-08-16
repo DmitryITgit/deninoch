@@ -1,115 +1,75 @@
 .checkin {
+  padding: 110px 40px;
+  background: var(--ivory);
+  content-visibility: auto;
+  contain-intrinsic-size: 700px;
+}
 
-  padding: 90px 30px;
-
-  text-align: center;
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #f7f1e8 100%
-    );
-
+.checkin-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: start;
 }
 
 .checkin h2 {
-
-  font-size: 42px;
-
-  margin-bottom: 15px;
-
+  margin: 0 0 18px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
 }
 
-.checkin-subtitle {
-
-  color: #666;
-
-  font-size: 18px;
-
-  margin-bottom: 50px;
-
+.checkin-intro p:last-child {
+  max-width: 380px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .checkin-list {
-
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 25px;
-
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .checkin-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
 
-  padding: 35px 25px;
-
-  border-radius: 25px;
-
-  background: #f8f8f8;
-
+.checkin-card:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
 .checkin-card span {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  width: 60px;
-
-  height: 60px;
-
-  border-radius: 50%;
-
-  background: #111;
-
-  color: white;
-
-  font-size: 20px;
-
-  margin-bottom: 20px;
-
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  padding-top: 6px;
 }
 
 .checkin-card h3 {
-
-  font-size: 21px;
-
-  margin-bottom: 15px;
-
+  margin: 0 0 8px;
+  font-size: 28px;
 }
 
 .checkin-card p {
-
-  color: #666;
-
-  line-height: 1.5;
-
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
-@media(max-width:900px){
-
-  .checkin-list {
-
-    grid-template-columns: repeat(2,1fr);
-
+@media (max-width: 800px) {
+  .checkin {
+    padding: 80px 20px;
   }
 
-}
-
-@media(max-width:600px){
-
-  .checkin-list {
-
+  .checkin-layout {
     grid-template-columns: 1fr;
-
+    gap: 36px;
   }
-
 }

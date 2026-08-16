@@ -37,17 +37,17 @@ function Apartment() {
 
   if (loading) {
     return (
-      <h1>
+      <p className="page-status">
         Загрузка...
-      </h1>
+      </p>
     )
   }
 
   if (!apartment) {
     return (
-      <h1>
+      <p className="page-status">
         Квартира не найдена
-      </h1>
+      </p>
     )
   }
 

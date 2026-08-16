@@ -1,209 +1,98 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import {
-  House,
-  Building2,
-  CircleHelp,
-  Phone,
-  FileText
-} from "lucide-react";
+import { Link, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import "./Header.css"
 
-import "./Header.css";
+const links = [
+  { to: "/", label: "Главная" },
+  { to: "/apartments", label: "Квартиры" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/contacts", label: "Контакты" },
+  { to: "/rules", label: "Правила" },
+  { to: "/cooperation", label: "Сотрудничество" }
+]
 
 function Header() {
+  const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const isHome = location.pathname === "/"
+  const solid = scrolled || !isHome || menuOpen
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 40)
+    }
 
-  const scrollTop = () => {
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [location.pathname])
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
 
-    setMenuOpen(false);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen])
 
-  };
-
-  const closeMenu = () => {
-
-    setMenuOpen(false);
-
-  };
+  function closeMenu() {
+    setMenuOpen(false)
+  }
 
   return (
-
     <>
-
-      <header className="header">
-
+      <header className={`header ${solid ? "header-solid" : "header-transparent"}`}>
         <div className="header-container">
-
-          <Link 
-            className="logo" 
-            to="/"
-          >
-
-            <div className="logo-title">
-              День и ночь
-            </div>
-
-            <div className="logo-subtitle">
-              Элитные квартиры в Ульяновске
-            </div>
-
+          <Link className="logo" to="/" onClick={closeMenu}>
+            <span className="logo-title">День и ночь</span>
+            <span className="logo-subtitle">Ульяновск</span>
           </Link>
 
           <nav className="nav">
-
-            <Link to="/" onClick={scrollTop}>
-              Главная
-            </Link>
-
-            <Link to="/apartments" onClick={scrollTop}>
-              Квартиры
-            </Link>
-
-            <Link to="/faq" onClick={scrollTop}>
-              FAQ
-            </Link>
-
-            <Link to="/contacts" onClick={scrollTop}>
-              Контакты
-            </Link>
-
-            <Link to="/rules" onClick={scrollTop}>
-              Правила
-            </Link>
-
-            <Link to="/cooperation" onClick={scrollTop}>
-              Сотрудничество
-            </Link>
-
-
-
+            {links.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={location.pathname === item.to ? "active" : ""}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           <button
-
+            type="button"
             className={`burger ${menuOpen ? "active" : ""}`}
-
-            onClick={() => setMenuOpen(!menuOpen)}
-
+            aria-label="Меню"
+            onClick={() => setMenuOpen((open) => !open)}
           >
-
             <span></span>
             <span></span>
-            <span></span>
-
           </button>
-
         </div>
-
       </header>
 
       <div
-
         className={`overlay ${menuOpen ? "show" : ""}`}
-
         onClick={closeMenu}
+      />
 
-      ></div>
-
-      <aside
-
-        className={`mobile-menu ${menuOpen ? "show" : ""}`}
-
-      >
-
-        <div className="mobile-top">
-
-          <h2>
-            День и ночь
-          </h2>
-
-          <p>
-            Посуточная аренда квартир
-          </p>
-
-        </div>
-
+      <aside className={`mobile-menu ${menuOpen ? "show" : ""}`}>
+        <p className="section-kicker">Меню</p>
         <nav className="mobile-nav">
-
-          <Link
-            to="/"
-            onClick={scrollTop}
-          >
-
-            <House />
-
-            Главная
-
-          </Link>
-
-          <Link
-            to="/apartments"
-            onClick={scrollTop}
-          >
-
-            <Building2 />
-
-            Квартиры
-
-          </Link>
-
-          <Link
-            to="/faq"
-            onClick={scrollTop}
-          >
-
-            <CircleHelp />
-
-            FAQ
-
-          </Link>
-
-          <Link
-            to="/contacts"
-            onClick={scrollTop}
-          >
-
-            <Phone />
-
-            Контакты
-
-          </Link>
-
-          <Link
-            to="/rules"
-            onClick={scrollTop}
-          >
-
-            <FileText />
-
-            Правила
-
-          </Link>
-
-          <Link
-            to="/cooperation"
-            onClick={scrollTop}
-          >
-
-            <FileText />
-
-            Сотрудничество
-
-          </Link>
-
+          {links.map((item) => (
+            <Link key={item.to} to={item.to} onClick={closeMenu}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
-
       </aside>
-
     </>
-
-  );
-
+  )
 }
 
-export default Header;
+export default Header

@@ -60,6 +60,8 @@ function Faq() {
 
     <main className="faq">
 
+      <p className="section-kicker">Вопросы</p>
+
       <h1>
         Часто задаваемые вопросы
       </h1>

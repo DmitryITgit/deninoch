@@ -1,135 +1,97 @@
 .services {
+  padding: 110px 40px 90px;
+  background: var(--night);
+  color: var(--ivory);
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
 
-  padding: 90px 30px;
-
+.services-head {
+  max-width: 720px;
+  margin: 0 auto 56px;
   text-align: center;
-   background:
-    linear-gradient(
-      180deg,
-      #f7f1e8 0%,
-      #ffffff 100%
-    );
-
 }
 
 .services h2 {
-
-  font-size: 42px;
-
-  margin-bottom: 15px;
-
+  margin: 0 0 16px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
 }
 
-.services-subtitle {
-
-  color: #666;
-
-  font-size: 18px;
-
-  margin-bottom: 50px;
-
+.services-head p:last-child {
+  margin: 0 auto;
+  max-width: 520px;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .services-grid {
-
   max-width: 1200px;
-
   margin: 0 auto;
-
   display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 30px;
-
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .service-card {
-
   position: relative;
-
-  height: 350px;
-
+  height: 380px;
   overflow: hidden;
-
-  border-radius: 25px;
-
 }
 
 .service-card img {
-
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
-  transition: .5s;
-
+  display: block;
+  transition: transform 0.6s ease;
 }
 
 .service-card:hover img {
-
-  transform: scale(1.08);
-
+  transform: scale(1.04);
 }
 
 .service-overlay {
-
   position: absolute;
-
   inset: 0;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: flex-end;
-
-  padding: 35px;
-
-  text-align: left;
-
-  color: white;
-
-  background:
-  linear-gradient(
-    transparent,
-    rgba(0,0,0,0.75)
-  );
-
+  padding: 32px;
+  background: linear-gradient(transparent 30%, rgba(12, 11, 10, 0.82));
 }
 
 .service-overlay h3 {
-
-  font-size: 28px;
-
-  margin-bottom: 10px;
-
+  margin: 0 0 8px;
+  font-size: 32px;
 }
 
 .service-overlay p {
-
-  font-size: 16px;
-
-  line-height: 1.5;
-
+  margin: 0;
+  color: rgba(244, 239, 230, 0.78);
+  line-height: 1.55;
 }
 
-@media(max-width:700px){
+@media (max-width: 700px) {
+  .services {
+    padding: 80px 0 70px;
+  }
+
+  .services-head {
+    padding: 0 20px;
+  }
 
   .services-grid {
-
     grid-template-columns: 1fr;
-
   }
 
   .service-card {
-
     height: 300px;
-
   }
-
 }
 
-
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover img {
+    transform: none;
+  }
+}

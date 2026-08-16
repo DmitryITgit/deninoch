@@ -12,6 +12,14 @@
 
   color:white;
 
+  font-family: Arial, sans-serif;
+
+}
+
+.admin h1,
+.admin h2,
+.admin h3 {
+  font-family: Arial, sans-serif;
 }
 
 .admin-content {

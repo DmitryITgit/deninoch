@@ -1,148 +1,67 @@
 .apartment-card {
-
-  width:100%;
-
-  box-sizing:border-box;
-
-  padding:15px;
-
-  border-radius:15px;
-
-  background:white;
-
-  border:1px solid #ddd;
-
-  text-decoration:none;
-
-  color:inherit;
-
-  transition:0.3s;
-
-  cursor:pointer;
-
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
 }
 
-.apartment-card:hover {
-
-  transform:translateY(-5px);
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
+.card-image {
+  overflow: hidden;
+  background: #ddd;
 }
 
 .apartment-card img {
-
-  width:100%;
-
-  height:220px;
-
-  object-fit:cover;
-
-  border-radius:12px;
-
-  display:block;
-
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
 }
 
-.apartment-card h3 {
-
-  margin-top:15px;
-
-  font-size:22px;
-
+.apartment-card:hover img {
+  transform: scale(1.04);
 }
 
-.apartment-card p {
+.card-info {
+  padding: 22px 4px 8px;
+}
 
-  color:#666;
+.card-address {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-  line-height:1.5;
-
+.apartment-card h2 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 500;
 }
 
 .apartment-card strong {
-
-  display:block;
-
-  margin-top:15px;
-
-  font-size:18px;
-
-  color:#111;
-
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.04em;
 }
 
-.apartment-card button {
-
-  margin-top:15px;
-
-  padding:10px 20px;
-
-  border:none;
-
-  border-radius:8px;
-
-  background:#111;
-
-  color:white;
-
-  cursor:pointer;
-
-}
-
-/* Телефон */
-
-@media(max-width:700px){
-
-  .apartment-card {
-
-    padding:10px;
-
-    border-radius:12px;
-
-  }
-
+@media (max-width: 700px) {
   .apartment-card img {
-
-    height:130px;
-
-    border-radius:10px;
-
+    height: 220px;
   }
 
-  .apartment-card h3 {
-
-    font-size:16px;
-
-    margin-top:10px;
-
+  .apartment-card h2 {
+    font-size: 22px;
   }
-
-  .apartment-card p {
-
-    font-size:13px;
-
-  }
-
-  .apartment-card strong {
-
-    font-size:15px;
-
-    margin-top:10px;
-
-  }
-
 }
 
-.apartment-card {
-
-  min-width:0;
-
-}
-
-.apartment-card h3,
-.apartment-card p {
-
-  overflow-wrap:break-word;
-
+@media (prefers-reduced-motion: reduce) {
+  .apartment-card:hover img {
+    transform: none;
+  }
 }
