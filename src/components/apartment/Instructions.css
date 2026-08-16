@@ -16,8 +16,8 @@
 }
 
 .instruction-card {
-  background: var(--night);
-  color: var(--ivory);
+  background: var(--stone);
+  color: var(--ink);
   overflow: hidden;
 }
 

@@ -1,6 +1,6 @@
 .site-footer {
-  background: var(--night);
-  color: var(--ivory);
+  background: var(--stone);
+  color: var(--ink);
   padding: 80px 40px 30px;
 }
 
@@ -18,7 +18,7 @@
   font-size: 42px;
   line-height: 1;
   text-decoration: none;
-  color: var(--ivory);
+  color: var(--ink);
 }
 
 .footer-tagline {
@@ -46,7 +46,7 @@
 
 .footer-col a {
   text-decoration: none;
-  color: var(--ivory);
+  color: var(--ink);
   font-size: 15px;
   opacity: 0.82;
   transition: opacity 0.25s ease, color 0.25s ease;

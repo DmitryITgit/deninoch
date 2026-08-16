@@ -26,13 +26,13 @@
 }
 
 .header-solid {
-  background: var(--night);
+  background: var(--ivory);
   border-bottom: 1px solid var(--line);
 }
 
 .header-solid .logo-title,
 .header-solid .nav a {
-  color: var(--ivory);
+  color: var(--ink);
 }
 
 .header-solid .logo-subtitle {
@@ -40,7 +40,7 @@
 }
 
 .header-solid .burger span {
-  background: var(--ivory);
+  background: var(--ink);
 }
 
 .header-container {
@@ -169,8 +169,8 @@
   inset: 0 0 0 auto;
   width: min(100%, 420px);
   height: 100vh;
-  background: var(--night);
-  color: var(--ivory);
+  background: var(--ivory);
+  color: var(--ink);
   z-index: 1200;
   transform: translateX(100%);
   transition: transform 0.4s ease;
@@ -190,7 +190,7 @@
 
 .mobile-nav a {
   text-decoration: none;
-  color: var(--ivory);
+  color: var(--ink);
   font-family: var(--font-serif);
   font-size: 34px;
   padding: 8px 0;

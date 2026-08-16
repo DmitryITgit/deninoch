@@ -5,8 +5,8 @@
 }
 
 .booking-card {
-  background: var(--night);
-  color: var(--ivory);
+  background: var(--stone);
+  color: var(--ink);
   padding: 48px;
   max-width: 480px;
   margin-left: auto;
