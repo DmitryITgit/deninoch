@@ -8,78 +8,90 @@
   position: relative;
   overflow: hidden;
   background: var(--paper);
+  aspect-ratio: 3 / 4;
 }
 
 .look-card img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 420px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  transition: transform 0.7s ease, opacity 0.5s ease;
 }
 
-.look-card.is-featured img {
-  height: min(72vh, 680px);
+.look-alt {
+  opacity: 0;
 }
 
 .look-card:hover img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
-.look-photo span {
+.look-card:hover .look-alt {
+  opacity: 1;
+}
+
+.look-shade {
   position: absolute;
-  left: 24px;
-  bottom: 20px;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 14px;
+  background: linear-gradient(180deg, transparent 55%, rgba(20, 16, 12, 0.55));
   color: var(--ivory);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-size: 11px;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  font-size: 10px;
 }
 
-.look-card:hover .look-photo span {
+.look-open {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.look-card:hover .look-open {
   opacity: 1;
   transform: none;
 }
 
 .look-meta {
-  padding: 18px 0 8px;
+  padding: 12px 0 4px;
 }
 
 .look-meta p {
-  margin: 0 0 8px;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  margin: 0 0 6px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .look-meta h2 {
   margin: 0;
-  font-size: 30px;
-  line-height: 1.12;
-}
-
-.look-card.is-featured h2 {
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: 20px;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .look-meta strong {
   display: block;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 8px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--gold);
 }
 
 @media (max-width: 700px) {
-  .look-card img,
-  .look-card.is-featured img {
-    height: 260px;
-  }
-
-  .look-photo span {
+  .look-open {
     opacity: 1;
     transform: none;
   }

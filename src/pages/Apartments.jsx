@@ -49,7 +49,7 @@ function Apartments() {
             <ApartmentCard
               key={item.id}
               apartment={item}
-              featured={index === 0 && !search}
+              index={index}
             />
           ))}
         </div>

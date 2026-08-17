@@ -40,16 +40,18 @@
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px 28px;
-}
-
-.catalog-grid .is-featured {
-  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 16px;
 }
 
 .catalog-empty {
   color: var(--muted);
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 800px) {
@@ -58,7 +60,13 @@
   }
 
   .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
   }
 }

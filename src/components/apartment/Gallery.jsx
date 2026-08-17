@@ -1,24 +1,24 @@
 import "./Gallery.css"
 
 function Gallery({ photos = [], onOpen }) {
-  const rest = photos.slice(1, 5)
+  const preview = photos.slice(0, 8)
 
   if (!photos.length) return null
 
   return (
     <section className="object-gallery wrap">
-      {rest.map((photo, i) => (
-        <button
-          type="button"
-          key={photo}
-          className={i === 0 ? "wide" : ""}
-          onClick={() => onOpen(i + 1)}
-        >
-          <img src={photo} alt={`Фото ${i + 2}`} loading="lazy" decoding="async" />
+      {preview.map((photo, i) => (
+        <button type="button" key={`${photo}-${i}`} onClick={() => onOpen(i)}>
+          <img
+            src={photo}
+            alt={`Фото ${i + 1}`}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
+          />
         </button>
       ))}
-      {photos.length > 5 && (
-        <button type="button" className="more" onClick={() => onOpen(5)}>
+      {photos.length > 8 && (
+        <button type="button" className="more" onClick={() => onOpen(8)}>
           Все {photos.length} фото
         </button>
       )}

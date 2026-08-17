@@ -1,23 +1,9 @@
 .object-page {
-  padding-bottom: 40px;
-}
-
-.object-hero button {
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-.object-hero img {
-  width: 100%;
-  height: min(78vh, 760px);
-  object-fit: cover;
+  padding: calc(var(--header-h) + 40px) 0 40px;
 }
 
 .object-head {
-  padding: 48px 0 24px;
+  padding: 0 0 24px;
 }
 
 .object-head .kicker {
@@ -94,10 +80,6 @@
 }
 
 @media (max-width: 800px) {
-  .object-hero img {
-    height: 52vh;
-  }
-
   .object-title-row,
   .object-body {
     grid-template-columns: 1fr;

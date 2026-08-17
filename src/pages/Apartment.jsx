@@ -38,19 +38,6 @@ function Apartment() {
 
   return (
     <main className="object-page">
-      {photos[0] && (
-        <section className="object-hero">
-          <button type="button" onClick={() => setLight(0)}>
-            <img
-              src={photos[0]}
-              alt={apartment.title}
-              fetchPriority="high"
-              decoding="async"
-            />
-          </button>
-        </section>
-      )}
-
       <header className="wrap object-head">
         <p className="kicker">
           <MapPin size={14} /> {apartment.address}
