@@ -9,6 +9,11 @@
   align-items: start;
 }
 
+.extras-copy,
+.extras-visual {
+  min-width: 0;
+}
+
 .extras h2 {
   margin: 0 0 40px;
   font-size: clamp(48px, 7vw, 92px);
@@ -29,6 +34,7 @@
   width: 100%;
   height: min(72vh, 640px);
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .extras-list button {
@@ -98,7 +104,12 @@
     height: 280px;
   }
 
-  .extras-list p {
-    max-height: 80px;
+  .extras-list button {
+    grid-template-columns: 40px 1fr;
+    gap: 8px 12px;
+  }
+
+  .extras-list strong {
+    font-size: 24px;
   }
 }

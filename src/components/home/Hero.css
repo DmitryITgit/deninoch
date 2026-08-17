@@ -6,10 +6,17 @@
   color: var(--ivory);
 }
 
+.hero picture {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
 .hero-image {
   position: absolute;
   inset: -8% 0 0;
   width: 100%;
+  max-width: none;
   height: 116%;
   object-fit: cover;
   transform: scale(1.06);
@@ -52,6 +59,12 @@
   margin: 0 0 32px;
   color: rgba(246, 241, 232, 0.84);
   line-height: 1.7;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .hero .btn-fill {
@@ -103,6 +116,15 @@
 @media (max-width: 700px) {
   .hero-copy {
     bottom: 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 12vw, 52px);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-cta .btn {

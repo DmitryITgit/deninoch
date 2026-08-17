@@ -2,6 +2,8 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
+  max-width: 100%;
+  overflow: hidden;
   transition: background 0.4s ease, border-color 0.4s ease;
 }
 
@@ -16,7 +18,8 @@
 }
 
 .site-header-inner {
-  width: min(var(--wrap), calc(100% - 48px));
+  width: min(var(--wrap), calc(100% - var(--gutter) * 2));
+  max-width: 100%;
   margin: 0 auto;
   height: var(--header-h);
   display: grid;

@@ -19,6 +19,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 html.lenis {
@@ -32,10 +34,13 @@ body {
   background: var(--ivory);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 img,
-video {
+video,
+iframe {
   max-width: 100%;
   display: block;
 }
@@ -60,6 +65,8 @@ input:focus-visible {
 
 #root {
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 h1,
@@ -72,6 +79,7 @@ h3 {
 
 .wrap {
   width: min(var(--wrap), calc(100% - var(--gutter) * 2));
+  max-width: 100%;
   margin-inline: auto;
 }
 

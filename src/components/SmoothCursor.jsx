@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./SmoothCursor.css"
 
 function isFinePointer() {
@@ -11,9 +11,15 @@ function prefersReducedMotion() {
 
 function SmoothCursor() {
   const houseRef = useRef(null)
+  const [enabled, setEnabled] = useState(false)
 
   useEffect(() => {
     if (!isFinePointer() || prefersReducedMotion()) return undefined
+    setEnabled(true)
+  }, [])
+
+  useEffect(() => {
+    if (!enabled) return undefined
 
     const house = houseRef.current
     if (!house) return undefined
@@ -66,7 +72,9 @@ function SmoothCursor() {
       document.removeEventListener("mouseleave", leave)
       document.documentElement.classList.remove("has-smooth-cursor")
     }
-  }, [])
+  }, [enabled])
+
+  if (!enabled) return null
 
   return (
     <div className="smooth-cursor" aria-hidden="true">
