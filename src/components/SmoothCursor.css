@@ -5,37 +5,31 @@
   z-index: 80;
 }
 
-.smooth-cursor-ring,
-.smooth-cursor-dot {
+.smooth-cursor-house {
   position: fixed;
   top: 0;
   left: 0;
-  border-radius: 50%;
+  width: 22px;
+  height: 22px;
   opacity: 0;
+  color: var(--gold);
+  stroke: currentColor;
+  stroke-width: 1.35;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: rgba(246, 241, 232, 0.35);
   will-change: transform;
+  transition: opacity 0.3s ease, color 0.3s ease, fill 0.3s ease;
+  filter: drop-shadow(0 1px 1px rgba(28, 25, 20, 0.12));
 }
 
-.smooth-cursor-ring.is-on,
-.smooth-cursor-dot.is-on {
+.smooth-cursor-house.is-on {
   opacity: 1;
 }
 
-.smooth-cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--gold);
-  transition: opacity 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-}
-
-.smooth-cursor-ring.is-hover {
-  border-color: var(--ink);
-  background: rgba(176, 137, 77, 0.08);
-}
-
-.smooth-cursor-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--gold);
+.smooth-cursor-house.is-hover {
+  color: var(--ink);
+  fill: rgba(176, 137, 77, 0.18);
 }
 
 html.has-smooth-cursor,

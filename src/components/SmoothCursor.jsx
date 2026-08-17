@@ -10,20 +10,18 @@ function prefersReducedMotion() {
 }
 
 function SmoothCursor() {
-  const ringRef = useRef(null)
-  const dotRef = useRef(null)
+  const houseRef = useRef(null)
 
   useEffect(() => {
     if (!isFinePointer() || prefersReducedMotion()) return undefined
 
-    const ring = ringRef.current
-    const dot = dotRef.current
-    if (!ring || !dot) return undefined
+    const house = houseRef.current
+    if (!house) return undefined
 
     document.documentElement.classList.add("has-smooth-cursor")
 
     const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-    const ringPos = { x: mouse.x, y: mouse.y }
+    const pos = { x: mouse.x, y: mouse.y }
     let hovering = false
     let visible = false
     let frame = 0
@@ -33,8 +31,7 @@ function SmoothCursor() {
       mouse.y = event.clientY
       if (!visible) {
         visible = true
-        ring.classList.add("is-on")
-        dot.classList.add("is-on")
+        house.classList.add("is-on")
       }
     }
 
@@ -46,18 +43,14 @@ function SmoothCursor() {
 
     function leave() {
       visible = false
-      ring.classList.remove("is-on")
-      dot.classList.remove("is-on")
+      house.classList.remove("is-on")
     }
 
     function tick() {
-      ringPos.x += (mouse.x - ringPos.x) * 0.16
-      ringPos.y += (mouse.y - ringPos.y) * 0.16
-
-      dot.style.transform = `translate(${mouse.x}px, ${mouse.y}px) translate(-50%, -50%)`
-      ring.style.transform = `translate(${ringPos.x}px, ${ringPos.y}px) translate(-50%, -50%) scale(${hovering ? 1.7 : 1})`
-      ring.classList.toggle("is-hover", hovering)
-
+      pos.x += (mouse.x - pos.x) * 0.22
+      pos.y += (mouse.y - pos.y) * 0.22
+      house.style.transform = `translate(${pos.x}px, ${pos.y}px) translate(-50%, -42%) scale(${hovering ? 1.18 : 1})`
+      house.classList.toggle("is-hover", hovering)
       frame = requestAnimationFrame(tick)
     }
 
@@ -77,8 +70,16 @@ function SmoothCursor() {
 
   return (
     <div className="smooth-cursor" aria-hidden="true">
-      <span className="smooth-cursor-ring" ref={ringRef} />
-      <span className="smooth-cursor-dot" ref={dotRef} />
+      <svg
+        className="smooth-cursor-house"
+        ref={houseRef}
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path d="M3.5 11.2 12 4.2l8.5 7" />
+        <path d="M6 10.8V19.5h12V10.8" />
+        <path d="M10.2 19.5v-5.2h3.6v5.2" />
+      </svg>
     </div>
   )
 }
