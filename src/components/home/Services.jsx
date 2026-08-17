@@ -30,13 +30,30 @@ function Services() {
   return (
     <section className="extras">
       <div className="wrap extras-layout">
-        <div className="reveal">
+        <div className="extras-copy reveal">
           <p className="kicker">Сервис</p>
           <h2>
             Больше,
             <br />
             <em>чем ночёвка.</em>
           </h2>
+
+          <div className="extras-list">
+            {services.map((item, index) => (
+              <button
+                type="button"
+                key={item.title}
+                className={index === active ? "is-active" : ""}
+                onMouseEnter={() => setActive(index)}
+                onFocus={() => setActive(index)}
+                onClick={() => setActive(index)}
+              >
+                <span>0{index + 1}</span>
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="extras-visual reveal">
@@ -47,23 +64,6 @@ function Services() {
             decoding="async"
           />
         </div>
-      </div>
-
-      <div className="wrap extras-list">
-        {services.map((item, index) => (
-          <button
-            type="button"
-            key={item.title}
-            className={index === active ? "is-active" : ""}
-            onMouseEnter={() => setActive(index)}
-            onFocus={() => setActive(index)}
-            onClick={() => setActive(index)}
-          >
-            <span>0{index + 1}</span>
-            <strong>{item.title}</strong>
-            <p>{item.text}</p>
-          </button>
-        ))}
       </div>
     </section>
   )
