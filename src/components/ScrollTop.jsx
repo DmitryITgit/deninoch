@@ -39,9 +39,10 @@ function ScrollTop() {
   }
 
   return (
-    <button 
+    <button
       className="scroll-top"
       onClick={scrollToTop}
+      aria-label="Наверх"
     >
       ↑
     </button>

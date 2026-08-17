@@ -1,199 +1,93 @@
 .contacts {
-  background: var(--ivory);
-  overflow: hidden;
+  padding: calc(var(--header-h) + 48px) 0 100px;
 }
 
-.contacts-hero {
+.contacts-top {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  min-height: calc(100vh - 80px);
-  align-items: stretch;
-  animation: contactsFade 0.8s ease both;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 72px;
 }
 
-.contacts-intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: calc(var(--header-h) + 48px) 64px 72px 48px;
-}
-
-.contacts-intro h1 {
-  margin: 0 0 22px;
+.contacts h1 {
+  margin: 0 0 18px;
   font-size: clamp(42px, 6vw, 72px);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.94;
 }
 
-.contacts-lead {
-  max-width: 420px;
-  margin: 0 0 36px;
+.contacts-top p {
+  max-width: 40ch;
   color: var(--muted);
-  font-size: 17px;
   line-height: 1.7;
 }
 
-.contacts-number {
+.contacts-phone {
+  display: inline-block;
+  margin: 24px 0 10px;
   font-family: var(--font-serif);
-  font-size: clamp(28px, 3.4vw, 42px);
-  color: var(--ink);
+  font-size: clamp(28px, 4vw, 40px);
   text-decoration: none;
-  letter-spacing: -0.02em;
-  width: fit-content;
   border-bottom: 1px solid var(--gold);
-  padding-bottom: 6px;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.contacts-number:hover {
-  color: var(--gold);
 }
 
 .contacts-hours {
-  margin: 22px 0 0;
+  margin: 0 0 28px !important;
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
-.contacts-photo {
-  position: relative;
-  overflow: hidden;
-  background: var(--stone);
+.contacts-map {
+  min-height: 420px;
+  background: var(--paper);
 }
 
-.contacts-photo img {
+.contacts-map iframe {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  animation: contactsZoom 18s ease-in-out infinite alternate;
+  height: 420px;
+  border: 0;
 }
 
-.contacts-channels {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 88px 40px 110px;
-  animation: contactsFade 0.9s ease 0.12s both;
-}
-
-.contacts-channels-head {
-  margin-bottom: 36px;
-}
-
-.contacts-channels h2 {
-  margin: 0;
-  font-size: clamp(32px, 4vw, 48px);
-}
-
-.contacts-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.contacts-row {
+.contacts-list a {
   display: grid;
-  grid-template-columns: 220px 1fr auto;
+  grid-template-columns: 160px 1fr auto;
+  gap: 16px;
   align-items: center;
-  gap: 20px;
-  padding: 26px 0;
+  padding: 24px 0;
   border-top: 1px solid var(--line);
   text-decoration: none;
-  color: var(--ink);
-  transition: transform 0.35s ease;
 }
 
-.contacts-row:last-child {
+.contacts-list a:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.contacts-row:hover {
-  transform: translateX(8px);
-}
-
-.contacts-row-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.contacts-list span {
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.contacts-row-label svg,
-.contacts-row svg:last-child {
-  color: var(--gold);
-  stroke-width: 1.6;
-}
-
-.contacts-row-value {
+.contacts-list strong {
   font-family: var(--font-serif);
   font-size: 28px;
+  font-weight: 500;
 }
 
-@keyframes contactsFade {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.contacts-list svg {
+  color: var(--gold);
 }
 
-@keyframes contactsZoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
-}
-
-@media (max-width: 900px) {
-  .contacts-hero {
+@media (max-width: 800px) {
+  .contacts-top,
+  .contacts-list a {
     grid-template-columns: 1fr;
-    min-height: auto;
+    gap: 16px;
   }
 
-  .contacts-intro {
-    padding: calc(var(--header-h) + 36px) 24px 40px;
-  }
-
-  .contacts-photo {
-    height: 320px;
-  }
-
-  .contacts-channels {
-    padding: 56px 20px 90px;
-  }
-
-  .contacts-row {
-    grid-template-columns: 1fr auto;
-    gap: 8px 16px;
-  }
-
-  .contacts-row-label {
-    grid-column: 1 / -1;
-  }
-
-  .contacts-row-value {
-    font-size: 24px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contacts-photo img,
-  .contacts-hero,
-  .contacts-channels,
-  .contacts-row {
-    animation: none;
-  }
-
-  .contacts-row:hover {
-    transform: none;
+  .contacts-map iframe {
+    height: 280px;
   }
 }

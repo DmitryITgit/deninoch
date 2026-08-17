@@ -1,252 +1,215 @@
-.header {
+.site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: background 0.35s ease, border-color 0.35s ease;
+  inset: 0 0 auto;
+  z-index: 30;
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
-.header-transparent {
+.site-header.is-clear {
   background: transparent;
   border-bottom: 1px solid transparent;
 }
 
-.header-transparent .logo-title,
-.header-transparent .nav a {
-  color: var(--ivory);
-}
-
-.header-transparent .burger span {
-  background: var(--ivory);
-}
-
-.header-transparent .logo-subtitle {
-  color: rgba(244, 239, 230, 0.7);
-}
-
-.header-solid {
+.site-header.is-solid {
   background: var(--ivory);
   border-bottom: 1px solid var(--line);
 }
 
-.header-solid .logo-title,
-.header-solid .nav a {
-  color: var(--ink);
-}
-
-.header-solid .logo-subtitle {
-  color: var(--muted);
-}
-
-.header-solid .burger span {
-  background: var(--ink);
-}
-
-.header-container {
-  max-width: 1280px;
+.site-header-inner {
+  width: min(var(--wrap), calc(100% - 48px));
   margin: 0 auto;
   height: var(--header-h);
-  padding: 0 40px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 }
 
-.logo {
-  display: flex;
-  flex-direction: column;
+.brand {
   text-decoration: none;
   justify-self: start;
 }
 
-.logo-title {
+.brand span {
+  display: block;
   font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 26px;
   line-height: 1;
 }
 
-.logo-subtitle {
-  margin-top: 6px;
+.brand small {
+  display: block;
+  margin-top: 5px;
   font-size: 10px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
+  color: var(--muted);
 }
 
-.nav {
+.is-clear .brand span,
+.is-clear .desk-nav a,
+.is-clear .header-phone,
+.is-clear .menu-toggle span {
+  color: var(--ivory);
+}
+
+.is-clear .menu-toggle span {
+  background: var(--ivory);
+}
+
+.is-clear .brand small {
+  color: rgba(246, 241, 232, 0.7);
+}
+
+.is-solid .brand span,
+.is-solid .desk-nav a,
+.is-solid .header-phone {
+  color: var(--ink);
+}
+
+.desk-nav {
   display: flex;
   gap: 4px;
-  justify-self: center;
 }
 
-.nav a {
-  position: relative;
+.desk-nav a {
+  padding: 8px 12px;
   text-decoration: none;
-  padding: 10px 14px;
   font-size: 11px;
-  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  opacity: 0.78;
-  transition: opacity 0.25s ease;
+  opacity: 0.72;
 }
 
-.nav a:hover,
-.nav a.active {
+.desk-nav a.is-active,
+.desk-nav a:hover {
   opacity: 1;
 }
 
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 4px;
-  height: 1px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.nav a:hover::after,
-.nav a.active::after {
-  transform: scaleX(1);
-}
-
-.header-actions {
+.header-side {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
 }
 
-.header-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
+.header-phone {
   text-decoration: none;
   font-size: 11px;
-  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #e08a3c, #c4a36a);
-  color: #1a120c;
 }
 
-.header-cta:hover {
-  filter: brightness(1.08);
-}
-
-.burger {
+.menu-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
-  border: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
   background: transparent;
-  cursor: pointer;
   position: relative;
-  z-index: 1201;
+  cursor: pointer;
+  z-index: 40;
 }
 
-.burger span {
+.menu-toggle span {
   position: absolute;
-  left: 8px;
-  width: 26px;
+  left: 10px;
+  width: 24px;
   height: 1px;
-  transition: 0.3s;
+  background: var(--ink);
 }
 
-.burger span:nth-child(1) {
-  top: 16px;
+.menu-toggle span:first-child {
+  top: 18px;
 }
 
-.burger span:nth-child(2) {
-  top: 24px;
+.menu-toggle span:last-child {
+  top: 26px;
 }
 
-.burger.active span:nth-child(1) {
+.menu-toggle.is-open span:first-child {
   transform: rotate(45deg);
-  top: 20px;
+  top: 22px;
 }
 
-.burger.active span:nth-child(2) {
+.menu-toggle.is-open span:last-child {
   transform: rotate(-45deg);
-  top: 20px;
+  top: 22px;
 }
 
-.overlay {
+.full-menu {
   position: fixed;
   inset: 0;
-  background: rgba(12, 11, 10, 0.45);
+  z-index: 35;
+  background: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px var(--gutter);
+  transform: translateY(-8px);
   opacity: 0;
   visibility: hidden;
-  transition: 0.35s;
-  z-index: 1100;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
-.overlay.show {
+.full-menu.is-open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+  transform: none;
 }
 
-.mobile-menu {
-  position: fixed;
-  inset: 0 0 0 auto;
-  width: min(100%, 420px);
-  height: 100vh;
-  background: var(--ivory);
-  color: var(--ink);
-  z-index: 1200;
-  transform: translateX(100%);
-  transition: transform 0.4s ease;
-  padding: 120px 36px 40px;
+.full-menu-close {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  border: 0;
+  background: transparent;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
 }
 
-.mobile-menu.show {
-  transform: translateX(0);
-}
-
-.mobile-nav {
+.full-menu nav {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 28px;
 }
 
-.mobile-nav a {
+.full-menu a {
   text-decoration: none;
-  color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 34px;
-  padding: 8px 0;
+  font-size: clamp(36px, 8vw, 64px);
+  line-height: 1.05;
 }
 
-.mobile-nav a:hover {
+.full-menu nav a span {
+  display: inline-block;
+  width: 48px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.16em;
   color: var(--gold);
 }
 
-.mobile-menu .btn-gold-fill {
-  margin-top: 36px;
-  border-radius: 999px;
+.full-menu .btn {
+  margin-top: 40px;
+  width: fit-content;
 }
 
-@media (max-width: 900px) {
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 76px;
-  }
-
-  .nav,
-  .header-cta {
+@media (max-width: 980px) {
+  .desk-nav,
+  .header-phone {
     display: none;
   }
 
-  .burger {
+  .site-header-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
     display: block;
   }
 }

@@ -1,83 +1,83 @@
 .faq {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: calc(var(--header-h) + 48px) 40px 100px;
+  padding: calc(var(--header-h) + 56px) 0 120px;
 }
 
-.faq h1 {
-  margin: 0 0 48px;
-  font-size: clamp(42px, 6vw, 64px);
-  line-height: 0.95;
+.faq-head h1 {
+  margin: 0 0 56px;
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.92;
+  max-width: 10ch;
 }
 
-.faq-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.faq-item {
+.faq-list article {
   border-top: 1px solid var(--line);
 }
 
-.faq-item:last-child {
+.faq-list article:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.faq-item button {
+.faq-list button {
   width: 100%;
-  padding: 22px 0;
-  border: none;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 56px 1fr 32px;
+  gap: 16px;
   align-items: center;
-  gap: 20px;
-  cursor: pointer;
-  font-size: 18px;
-  color: var(--ink);
+  padding: 22px 0;
+  border: 0;
+  background: transparent;
   text-align: left;
-  font-family: var(--font-serif);
+  cursor: pointer;
+  color: inherit;
 }
 
-.faq-item button b {
+.faq-list button span {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+
+.faq-list strong {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 500;
+}
+
+.faq-list b {
   font-size: 24px;
   font-weight: 400;
   color: var(--gold);
-  transition: transform 0.3s ease;
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.faq-list .is-open .faq-answer {
+  grid-template-rows: 1fr;
 }
 
 .faq-answer p {
-  padding: 0 48px 22px 0;
+  overflow: hidden;
   margin: 0;
+  padding: 0 0 0 72px;
+  max-width: 62ch;
   color: var(--muted);
   line-height: 1.7;
-  font-size: 16px;
 }
 
-.faq-item.active .faq-answer {
-  max-height: 240px;
-}
-
-.faq-item.active button b {
-  transform: rotate(45deg);
+.faq-list .is-open .faq-answer p {
+  padding-bottom: 28px;
 }
 
 @media (max-width: 700px) {
-  .faq {
-    padding: calc(var(--header-h) + 28px) 20px 80px;
+  .faq-list button {
+    grid-template-columns: 40px 1fr 24px;
   }
 
-  .faq h1 {
-    font-size: 36px;
-  }
-
-  .faq-item button {
-    font-size: 17px;
+  .faq-answer p {
+    padding-left: 0;
   }
 }

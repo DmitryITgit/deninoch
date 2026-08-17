@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "./ApartmentCard.css"
 
-function ApartmentCard({ apartment }) {
+function ApartmentCard({ apartment, featured = false }) {
   const photo =
     apartment.photos?.find((item) => item.is_main)?.url ||
     apartment.photos?.[0]?.url ||
@@ -9,18 +9,16 @@ function ApartmentCard({ apartment }) {
     "/no-photo.jpg"
 
   return (
-    <Link to={`/apartments/${apartment.id}`} className="apartment-card">
-      <div className="card-image">
-        <img
-          src={photo}
-          alt={apartment.title}
-          loading="lazy"
-          decoding="async"
-        />
+    <Link
+      to={`/apartments/${apartment.id}`}
+      className={`look-card ${featured ? "is-featured" : ""}`}
+    >
+      <div className="look-photo">
+        <img src={photo} alt={apartment.title} loading="lazy" decoding="async" />
+        <span>Смотреть квартиру →</span>
       </div>
-
-      <div className="card-info">
-        <p className="card-address">{apartment.address}</p>
+      <div className="look-meta">
+        <p>{apartment.address}</p>
         <h2>{apartment.title}</h2>
         <strong>от {apartment.price} ₽ / сутки</strong>
       </div>

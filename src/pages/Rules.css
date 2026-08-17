@@ -1,83 +1,68 @@
 .rules {
-  padding: calc(var(--header-h) + 48px) 40px 100px;
+  padding: calc(var(--header-h) + 56px) 0 120px;
 }
 
-.rules-box {
-  max-width: 860px;
-  margin: 0 auto;
+.rules-head {
+  max-width: 720px;
+  margin-bottom: 64px;
 }
 
 .rules h1 {
-  margin: 0 0 14px;
-  font-size: clamp(42px, 6vw, 64px);
-  line-height: 0.95;
+  margin: 0 0 16px;
+  font-size: clamp(42px, 7vw, 80px);
+  line-height: 0.92;
 }
 
-.rules .subtitle {
-  margin: 0 0 48px;
+.rules-head p:last-child {
   color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
 }
 
-.rule {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 22px 0;
+.rules-block {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  padding: 36px 0;
   border-top: 1px solid var(--line);
 }
 
-.rule:last-of-type {
+.rules-block:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.rule svg {
-  width: 22px;
-  height: 22px;
-  min-width: 22px;
-  margin-top: 4px;
-  color: var(--gold);
-  stroke-width: 1.6;
-}
-
-.rule p {
+.rules-block p {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink);
-}
-
-.welcome {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid var(--line);
-}
-
-.welcome svg {
-  color: var(--gold);
-  stroke-width: 1.6;
-  margin-bottom: 12px;
-}
-
-.welcome p {
-  margin: 0 0 8px;
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: 32px;
 }
 
-.welcome span {
+.rules-block span {
   display: block;
-  color: var(--muted);
-  line-height: 1.7;
+  margin-bottom: 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
 }
 
-@media (max-width: 700px) {
-  .rules {
-    padding: calc(var(--header-h) + 28px) 20px 80px;
-  }
+.rules-block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-  .rule p {
-    font-size: 16px;
+.rules-block li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.6;
+}
+
+.rules-block li:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .rules-block {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }

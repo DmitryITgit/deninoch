@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./Faq.css";
+import { useState } from "react"
+import "./Faq.css"
 
 const questions = [
   {
@@ -16,7 +16,7 @@ const questions = [
   },
   {
     q: "Предоставляете ли отчётные документы?",
-    a: "Да, предоставляем документы для командировочных за комиссию"
+    a: "Да, предоставляем документы для командировочных за комиссию."
   },
   {
     q: "Есть ли Wi-Fi и техника?",
@@ -36,79 +36,53 @@ const questions = [
   },
   {
     q: "Можно ли курить в квартире?",
-    a: "Курение внутри квартиры запрещено, но можно на балконе (с закрытой дверью чтобы запаха в квартире не было)"
+    a: "Курение внутри квартиры запрещено, но можно на балконе (с закрытой дверью, чтобы запаха в квартире не было)."
   },
-
   {
-    q: "Можно заехать раньше или выехать позже",
-    a: "Можно по договоренности, если квартира свободна"
+    q: "Можно заехать раньше или выехать позже?",
+    a: "Можно по договорённости, если квартира свободна."
   },
-
   {
-    q: "Берётся ли залог, если да, то когда возвращаете",
-    a: "Да, залог возвращается в течении дня выезда после уборки и осмотра квартиры"
-  },
-
-
-];
+    q: "Берётся ли залог, если да, то когда возвращаете?",
+    a: "Да, залог возвращается в течение дня выезда после уборки и осмотра квартиры."
+  }
+]
 
 function Faq() {
-
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(0)
 
   return (
-
     <main className="faq">
+      <header className="wrap faq-head">
+        <p className="kicker">FAQ</p>
+        <h1>Ответы на вопросы</h1>
+      </header>
 
-      <p className="section-kicker">Вопросы</p>
+      <div className="wrap faq-list">
+        {questions.map((item, index) => {
+          const open = active === index
+          const num = String(index + 1).padStart(2, "0")
 
-      <h1>
-        Часто задаваемые вопросы
-      </h1>
-
-      <div className="faq-list">
-
-        {questions.map((item,index)=>(
-
-          <div 
-            className={`faq-item ${active === index ? "active" : ""}`}
-            key={index}
-          >
-
-            <button
-              onClick={() =>
-                setActive(active === index ? null : index)
-              }
-            >
-
-              <span>
-                {item.q}
-              </span>
-
-              <b>
-                +
-              </b>
-
-            </button>
-
-            <div className="faq-answer">
-
-              <p>
-                {item.a}
-              </p>
-
-            </div>
-
-          </div>
-
-        ))}
-
+          return (
+            <article className={open ? "is-open" : ""} key={item.q}>
+              <button
+                type="button"
+                aria-expanded={open}
+                onClick={() => setActive(open ? null : index)}
+              >
+                <span>{num}</span>
+                <strong>{item.q}</strong>
+                <b aria-hidden="true">{open ? "–" : "+"}</b>
+              </button>
+              <div className="faq-answer">
+                <p>{item.a}</p>
+              </div>
+            </article>
+          )
+        })}
       </div>
-
     </main>
-
   )
-
 }
 
-export default Faq;
+export default Faq

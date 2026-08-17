@@ -1,15 +1,16 @@
 :root {
-  --night: #2c2620;
-  --ivory: #f4efe6;
-  --stone: #ebe3d4;
-  --ink: #1a1612;
-  --muted: #8a8178;
-  --gold: #c4a36a;
-  --line: rgba(196, 163, 106, 0.35);
+  --ivory: #f6f1e8;
+  --paper: #efe7d9;
+  --ink: #1c1914;
+  --charcoal: #2a2620;
+  --muted: #7a7268;
+  --gold: #b0894d;
+  --line: rgba(28, 25, 20, 0.12);
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --header-h: 88px;
-  --radius: 6px;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --header-h: 84px;
+  --wrap: 1240px;
+  --gutter: 40px;
 }
 
 * {
@@ -22,7 +23,7 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-weight: 400;
   background: var(--ivory);
   color: var(--ink);
@@ -32,16 +33,25 @@ body {
 img,
 video {
   max-width: 100%;
+  display: block;
 }
 
 button,
 input,
-textarea {
+textarea,
+a {
   font-family: inherit;
 }
 
 a {
   color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
 }
 
 #root {
@@ -50,15 +60,19 @@ a {
 
 h1,
 h2,
-h3,
-.font-serif {
+h3 {
   font-family: var(--font-serif);
   font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
-.section-kicker {
-  margin: 0 0 14px;
-  font-family: var(--font-body);
+.wrap {
+  width: min(var(--wrap), calc(100% - var(--gutter) * 2));
+  margin-inline: auto;
+}
+
+.kicker {
+  margin: 0 0 16px;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.28em;
@@ -66,61 +80,90 @@ h3,
   color: var(--gold);
 }
 
-.btn-gold {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 34px;
-  border: 1px solid var(--gold);
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1px solid var(--ink);
   background: transparent;
-  color: var(--gold);
+  color: var(--ink);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 12px;
+  letter-spacing: 0.16em;
+  font-size: 11px;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 999px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
-.btn-gold:hover {
-  background: var(--gold);
-  color: var(--night);
+.btn:hover {
+  background: var(--ink);
+  color: var(--ivory);
 }
 
-.btn-gold-fill {
-  background: linear-gradient(135deg, #e08a3c, #c4a36a);
-  color: #1a120c;
-  border-color: transparent;
+.btn-fill {
+  background: var(--ink);
+  color: var(--ivory);
+  border-color: var(--ink);
 }
 
-.btn-gold-fill:hover {
-  background: var(--gold);
+.btn-fill:hover {
+  background: transparent;
   color: var(--ink);
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.btn-light {
+  border-color: var(--ivory);
+  color: var(--ivory);
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+.btn-light:hover {
+  background: var(--ivory);
+  color: var(--ink);
 }
 
 .page-status {
   min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   padding: calc(var(--header-h) + 40px) 24px 80px;
   font-family: var(--font-serif);
   font-size: 36px;
-  font-weight: 500;
-  text-align: center;
+}
+
+.page-fade {
+  animation: pageIn 0.55s ease both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --gutter: 20px;
+    --header-h: 72px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -131,12 +174,12 @@ h3,
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
   }
 
-  .reveal {
+  .reveal,
+  .page-fade {
     opacity: 1;
     transform: none;
   }

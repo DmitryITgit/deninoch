@@ -1,118 +1,87 @@
-.cooperation {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: calc(var(--header-h) + 48px) 40px 100px;
+.coop {
+  padding-bottom: 80px;
 }
 
-.cooperation-hero {
+.coop-hero img {
+  width: 100%;
+  height: min(62vh, 560px);
+  object-fit: cover;
+}
+
+.coop-hero-copy {
+  padding: calc(var(--header-h) + 48px) 0 36px;
+}
+
+.coop h1 {
+  margin: 0 0 16px;
+  max-width: 16ch;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.94;
+}
+
+.coop-hero-copy p:last-child {
+  max-width: 46ch;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.coop-grid,
+.coop-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
-  margin-bottom: 72px;
-}
-
-.cooperation-hero img {
-  width: 100%;
-  height: 460px;
-  object-fit: cover;
-  display: block;
-}
-
-.cooperation-hero-text h1 {
-  margin: 0 0 18px;
-  font-size: clamp(36px, 5vw, 54px);
-  line-height: 1.05;
-}
-
-.cooperation-hero-text p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.cooperation-block {
-  padding: 36px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--line);
 }
 
-.cooperation-block h2,
-.cooperation-columns h3,
-.cooperation-final h2 {
-  margin: 0 0 18px;
+.coop h2 {
+  margin: 0 0 20px;
   font-size: 32px;
 }
 
-.cooperation-block p {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.cooperation-block ul,
-.cooperation-columns ul {
+.coop ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.cooperation-block li,
-.cooperation-columns li {
-  margin-bottom: 12px;
-  padding-left: 18px;
-  position: relative;
+.coop li,
+.coop-grid p {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.6;
   color: var(--ink);
-  line-height: 1.5;
 }
 
-.cooperation-block li::before,
-.cooperation-columns li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 6px;
-  height: 1px;
-  background: var(--gold);
-}
-
-.cooperation-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 36px 0;
+.coop-final {
+  padding: 72px 0 40px;
   border-top: 1px solid var(--line);
 }
 
-.cooperation-final {
-  margin-top: 8px;
-  padding: 48px 0 0;
-  border-top: 1px solid var(--line);
+.coop-final h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  max-width: 16ch;
 }
 
-.cooperation-final p {
+.coop-final p {
   color: var(--muted);
   margin: 0 0 28px;
 }
 
-.cooperation-final .btn-gold {
+.coop-final .btn {
   margin-right: 12px;
   margin-bottom: 12px;
 }
 
 @media (max-width: 800px) {
-  .cooperation {
-    padding: calc(var(--header-h) + 28px) 20px 80px;
+  .coop-hero img {
+    height: 280px;
   }
 
-  .cooperation-hero,
-  .cooperation-columns {
+  .coop-grid,
+  .coop-split {
     grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .cooperation-hero img {
-    height: 260px;
+    gap: 32px;
+    padding: 40px 0;
   }
 }

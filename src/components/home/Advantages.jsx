@@ -4,42 +4,42 @@ function Advantages() {
   const items = [
     {
       num: "01",
+      label: "Пространство",
       title: "Элитные квартиры",
       text: "Современный интерьер, качественная техника и всё необходимое для спокойного проживания."
     },
     {
       num: "02",
-      title: "Свежее бельё",
-      text: "Перед каждым заселением — чистое постельное бельё, полотенца и порядок в деталях."
+      label: "Сервис",
+      title: "Свежее бельё и чистота",
+      text: "Перед каждым заселением — чистое бельё, полотенца и тщательная уборка. Вы заходите в готовое пространство."
     },
     {
       num: "03",
-      title: "Идеальная чистота",
-      text: "Квартиры проходят тщательную уборку. Вы заходите в готовое пространство."
-    },
-    {
-      num: "04",
+      label: "Забота",
       title: "Видеоинструкции",
-      text: "Покажем, как пользоваться техникой и всем оборудованием в квартире."
+      text: "Покажем, как пользоваться техникой и всем оборудованием в квартире — без лишних вопросов."
     }
   ]
 
   return (
     <section className="advantages">
-      <div className="advantages-head">
-        <p className="section-kicker">Почему мы</p>
+      <div className="wrap advantages-intro reveal">
+        <p className="kicker">Почему мы</p>
         <h2>Комфорт, которому можно доверять</h2>
-        <p className="advantages-subtitle">
-          Мы создаём условия, чтобы проживание было тихим, удобным и без лишних вопросов.
-        </p>
       </div>
 
-      <div className="advantages-grid">
+      <div className="wrap">
         {items.map((item) => (
-          <article className="advantage-card" key={item.num}>
-            <span>{item.num}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
+          <article className="advantage-row reveal" key={item.num}>
+            <div>
+              <span>{item.num}</span>
+              <p>{item.label}</p>
+            </div>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
           </article>
         ))}
       </div>

@@ -19,18 +19,18 @@ function AppShell() {
   return (
     <>
       {!isAdmin && <Header />}
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/apartments" element={<Apartments />} />
-        <Route path="/apartments/:id" element={<Apartment />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/rules" element={<Rules />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/cooperation" element={<Cooperation />} />
-      </Routes>
-
+      <div className={isAdmin ? undefined : "page-fade"} key={pathname}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/apartments" element={<Apartments />} />
+          <Route path="/apartments/:id" element={<Apartment />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/rules" element={<Rules />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/cooperation" element={<Cooperation />} />
+        </Routes>
+      </div>
       {!isAdmin && <Footer />}
       {!isAdmin && <ScrollTop />}
     </>

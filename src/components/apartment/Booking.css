@@ -1,105 +1,48 @@
 .booking {
-  max-width: 1200px;
-  margin: 70px auto 0;
-  padding: 0 40px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  padding: 80px 0 100px;
+  border-top: 1px solid var(--line);
 }
 
-.booking-card {
-  background: var(--stone);
-  color: var(--ink);
-  padding: 48px;
-  max-width: 480px;
-  margin-left: auto;
+.booking h2 {
+  margin: 0 0 16px;
+  font-size: 56px;
 }
 
-.booking-card h2 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 500;
-}
-
-.booking-card h2 span {
-  font-family: var(--font-body);
-  font-size: 14px;
+.booking h2 span {
+  font-family: var(--font-sans);
+  font-size: 16px;
   color: var(--muted);
-  font-weight: 400;
-  letter-spacing: 0.08em;
 }
 
-.booking-text {
-  margin-top: 20px;
+.booking p {
+  margin: 0;
   color: var(--muted);
   line-height: 1.7;
+  max-width: 42ch;
 }
 
-.phone-flip {
-  width: 100%;
-  height: 54px;
-  margin-top: 32px;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.phone-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.phone-flip.active .phone-inner {
-  transform: rotateY(180deg);
-}
-
-.phone-front,
-.phone-back {
-  position: absolute;
-  inset: 0;
+.booking-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  backface-visibility: hidden;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border: 1px solid var(--gold);
+  flex-direction: column;
+  gap: 12px;
 }
 
-.phone-front {
-  background: transparent;
-  color: var(--gold);
-  gap: 10px;
+.booking-actions .btn {
+  width: 100%;
 }
 
-.phone-back {
-  background: var(--gold);
-  color: var(--night);
-  transform: rotateY(180deg);
-  text-decoration: none;
-}
-
-.booking-note {
-  margin-top: 22px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .booking {
-    padding: 0 20px 80px;
+    grid-template-columns: 1fr;
+    padding: 48px 0 80px;
+    gap: 28px;
   }
 
-  .booking-card {
-    padding: 32px 24px;
-    max-width: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .phone-inner {
-    transition: none;
+  .booking h2 {
+    font-size: 40px;
   }
 }

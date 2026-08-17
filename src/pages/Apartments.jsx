@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-
 import ApartmentCard from "../components/ApartmentCard"
 import { getApartments } from "../api/apartments"
+import useReveal from "../hooks/useReveal"
 import "./Apartments.css"
 
 function Apartments() {
@@ -9,47 +9,52 @@ function Apartments() {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(true)
 
+  useReveal()
+
   useEffect(() => {
     async function load() {
       const data = await getApartments()
       setApartments(data || [])
       setLoading(false)
     }
-
     load()
   }, [])
 
-  const filteredApartments = apartments.filter((item) =>
+  const filtered = apartments.filter((item) =>
     item.address?.toLowerCase().includes(search.toLowerCase())
   )
 
   return (
-    <main className="apartments">
-      <header className="apartments-head">
-        <p className="section-kicker">Каталог</p>
+    <main className="catalog">
+      <header className="wrap catalog-head">
+        <p className="kicker">Каталог</p>
         <h1>Наши квартиры</h1>
         <p>Тихие пространства в удобных районах Ульяновска.</p>
+        <label className="catalog-search">
+          <span>Поиск по адресу</span>
+          <input
+            type="search"
+            placeholder="Кашубы, Тюленева, Латышева…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </label>
       </header>
 
-      <div className="apartments-search">
-        <input
-          type="text"
-          placeholder="Поиск по адресу"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-
       {loading ? (
-        <p className="no-result">Загрузка...</p>
-      ) : filteredApartments.length > 0 ? (
-        <div className="apartments-list">
-          {filteredApartments.map((item) => (
-            <ApartmentCard key={item.id} apartment={item} />
+        <p className="wrap catalog-empty">Загрузка...</p>
+      ) : filtered.length > 0 ? (
+        <div className="wrap catalog-grid">
+          {filtered.map((item, index) => (
+            <ApartmentCard
+              key={item.id}
+              apartment={item}
+              featured={index === 0 && !search}
+            />
           ))}
         </div>
       ) : (
-        <p className="no-result">Квартиры не найдены</p>
+        <p className="wrap catalog-empty">Квартиры не найдены</p>
       )}
     </main>
   )

@@ -1,133 +1,76 @@
 import "./Rules.css"
 
-import {
-  House,
-  BadgeCheck,
-  WalletCards,
-  UserRoundX,
-  CigaretteOff,
-  VolumeX,
-  PawPrint,
-  Heart
-} from "lucide-react"
+const sections = [
+  {
+    num: "01",
+    title: "Общие правила",
+    items: [
+      "Студия сдаётся посуточно и почасово.",
+      "При заселении необходимо предоставить паспорт.",
+      "Гости младше 23 лет не заселяются."
+    ]
+  },
+  {
+    num: "02",
+    title: "Заселение",
+    items: [
+      "Страховой депозит — 3000 ₽.",
+      "Депозит возвращается после выезда, осмотра квартиры и уборки при соблюдении правил."
+    ]
+  },
+  {
+    num: "03",
+    title: "Проживание",
+    items: [
+      "Курение в квартире запрещено.",
+      "Вечеринки, шумные мероприятия и нарушение тишины после 22:00 не допускаются.",
+      "Проживание с домашними животными не предусмотрено."
+    ]
+  },
+  {
+    num: "04",
+    title: "Выезд",
+    items: [
+      "Стандартное время выезда — 12:00.",
+      "Залог возвращается в течение дня выезда после уборки и осмотра."
+    ]
+  },
+  {
+    num: "05",
+    title: "Ответственность",
+    items: [
+      "Пожалуйста, бережно относитесь к пространству.",
+      "Мы будем рады видеть вас в числе наших гостей."
+    ]
+  }
+]
 
 function Rules() {
-
   return (
-
     <main className="rules">
+      <header className="wrap rules-head">
+        <p className="kicker">Проживание</p>
+        <h1>Правила проживания</h1>
+        <p>Ознакомьтесь с условиями перед бронированием.</p>
+      </header>
 
-      <div className="rules-box">
-
-        <p className="section-kicker">Проживание</p>
-        <h1>
-          Правила проживания
-        </h1>
-
-        <p className="subtitle">
-          Пожалуйста, ознакомьтесь с условиями проживания перед бронированием.
-        </p>
-
-        <div className="rule">
-
-          <House />
-
-          <p>
-            Студия сдается <strong>посуточно и почасово.</strong>
-          </p>
-
-        </div>
-
-        <div className="rule">
-
-          <BadgeCheck />
-
-          <p>
-            При заселении необходимо предоставить <strong>паспорт.</strong>
-          </p>
-
-        </div>
-
-        <div className="rule">
-
-          <WalletCards />
-
-          <p>
-            <strong>
-              Страховой депозит — 3000 ₽.
-            </strong>
-
-            
-
-
-            Возвращается после выезда, осмотра квартиры и проведения уборки
-            при соблюдении правил проживания.
-          </p>
-
-        </div>
-
-        <div className="rule">
-
-          <UserRoundX />
-
-          <p>
-            Гости <strong>младше 23 лет</strong> не заселяются.
-          </p>
-
-        </div>
-
-        <div className="rule">
-
-          <CigaretteOff />
-
-          <p>
-            Курение в квартире <strong>запрещено.</strong>
-          </p>
-
-        </div>
-
-        <div className="rule">
-
-          <VolumeX />
-
-          <p>
-            Проведение вечеринок, шумных мероприятий и нарушение режима тишины
-            после <strong>22:00</strong> не допускаются.
-          </p>
-
-        </div>
-
-        <div className="rule">
-
-          <PawPrint />
-
-          <p>
-            Проживание с домашними животными <strong>не предусмотрено.</strong>
-          </p>
-
-        </div>
-
-        <div className="welcome">
-
-          <Heart />
-
-          <p>
-            Будем рады видеть вас в числе наших гостей!
-          </p>
-
-          <span>
-            Мы постарались создать уютную атмосферу, чтобы ваше пребывание
-            было максимально комфортным и приятным.
-          </span>
-
-        </div>
-
+      <div className="wrap">
+        {sections.map((section) => (
+          <section className="rules-block" key={section.num}>
+            <p>
+              <span>{section.num}</span>
+              {section.title}
+            </p>
+            <ul>
+              {section.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
-
     </main>
-
   )
-
 }
 
 export default Rules

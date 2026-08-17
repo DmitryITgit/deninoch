@@ -9,12 +9,12 @@ function CheckIn() {
     },
     {
       num: "02",
-      title: "Бронируете",
+      title: "Связываетесь с нами",
       text: "Оставляете заявку удобным способом и подтверждаете бронирование."
     },
     {
       num: "03",
-      title: "Получаете инструкции",
+      title: "Получаете подтверждение",
       text: "Отправляем доступ к квартире — бесконтактное заселение по коду."
     },
     {
@@ -25,19 +25,19 @@ function CheckIn() {
   ]
 
   return (
-    <section className="checkin">
-      <div className="checkin-layout">
-        <div className="checkin-intro">
-          <p className="section-kicker">Заселение</p>
+    <section className="journey">
+      <div className="wrap journey-layout">
+        <div className="journey-intro reveal">
+          <p className="kicker">Заселение</p>
           <h2>Как всё происходит</h2>
           <p>
-            От выбора квартиры до входа в дверь — короткий и понятный сценарий, без очередей на ключи.
+            От выбора квартиры до входа в дверь — короткий сценарий, без очереди на ключи.
           </p>
         </div>
 
-        <ol className="checkin-list">
+        <ol className="journey-line">
           {steps.map((step) => (
-            <li className="checkin-card" key={step.num}>
+            <li className="reveal" key={step.num}>
               <span>{step.num}</span>
               <div>
                 <h3>{step.title}</h3>

@@ -1,90 +1,31 @@
-import { useState } from "react"
 import "./Booking.css"
 
 function Booking({ price }) {
-
-  const [phoneOpen, setPhoneOpen] = useState(false)
-
   return (
-
-    <section className="booking">
-
-      <div className="booking-card">
-
+    <section className="booking wrap">
+      <div>
+        <p className="kicker">Бронирование</p>
         <h2>
-
-          {price} ₽
-
-          <span>
-            / сутки
-          </span>
-
+          {price} ₽ <span>/ сутки</span>
         </h2>
-
-        <p className="booking-text">
-
-          Свяжитесь с нами, чтобы уточнить
-          свободные даты и забронировать квартиру.
+        <p>
+          Свяжитесь с нами, чтобы уточнить свободные даты.
           В пятницу, в выходные и праздничные дни цена отличается.
-
         </p>
-
-        <div
-
-          className={`phone-flip ${phoneOpen ? "active" : ""}`}
-
-          onClick={() => setPhoneOpen(!phoneOpen)}
-
-        >
-
-          <div className="phone-inner">
-
-            <div className="phone-front">
-
-              📞
-
-              <span>
-                Позвонить и забронировать
-              </span>
-
-            </div>
-
-            <a
-
-              href="tel:+79539836853"
-
-              className="phone-back"
-
-              onClick={(e)=>e.stopPropagation()}
-
-            >
-
-              +7 (953) 983-68-53
-
-              <small>
-              </small>
-
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <p className="booking-note">
-
-          После обращения мы подтвердим
-          доступность квартиры и расскажем
-          все детали заселения.
-
-        </p>
-
       </div>
-
+      <div className="booking-actions">
+        <a className="btn btn-fill" href="tel:+79539836853">
+          Позвонить и забронировать
+        </a>
+        <a className="btn" href="https://t.me/deni_noch73" target="_blank" rel="noreferrer">
+          Написать в Telegram
+        </a>
+        <p>
+          После обращения подтвердим доступность и расскажем детали заселения.
+        </p>
+      </div>
     </section>
-
   )
-
 }
 
 export default Booking

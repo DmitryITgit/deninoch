@@ -1,93 +1,111 @@
-.apartment-page {
-  padding-top: var(--header-h);
-  background: var(--ivory);
+.object-page {
+  padding-bottom: 40px;
 }
 
-.apartment-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 40px 28px;
+.object-hero button {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
 
-.apartment-header h1 {
-  margin: 0 0 14px;
-  font-size: clamp(36px, 5vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+.object-hero img {
+  width: 100%;
+  height: min(78vh, 760px);
+  object-fit: cover;
 }
 
-.apartment-address {
+.object-head {
+  padding: 48px 0 24px;
+}
+
+.object-head .kicker {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.object-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+}
+
+.object-head h1 {
   margin: 0;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  max-width: 16ch;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.95;
+}
+
+.object-title-row > p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 36px;
+}
+
+.object-title-row span {
+  font-family: var(--font-sans);
+  font-size: 14px;
   color: var(--muted);
 }
 
-.apartment-address svg {
-  color: var(--gold);
-}
-
-.description {
-  max-width: 1200px;
-  margin: 70px auto 0;
-  padding: 0 40px;
+.object-body {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
+  gap: 64px;
+  padding: 72px 0;
 }
 
-.description h2 {
+.object-body h2 {
   margin: 0 0 18px;
   font-size: 42px;
 }
 
-.description p {
+.object-body p {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.75;
   color: var(--muted);
+  line-height: 1.75;
+  font-size: 17px;
 }
 
-.features {
-  display: grid;
-  gap: 0;
+.object-body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.feature {
+.object-body li {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 0;
+  gap: 12px;
+  padding: 16px 0;
   border-top: 1px solid var(--line);
-  font-size: 16px;
 }
 
-.feature:last-child {
+.object-body li:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.feature svg {
+.object-body svg {
   color: var(--gold);
-  flex-shrink: 0;
 }
 
 @media (max-width: 800px) {
-  .apartment-header,
-  .description {
-    padding-left: 20px;
-    padding-right: 20px;
+  .object-hero img {
+    height: 52vh;
   }
 
-  .description {
+  .object-title-row,
+  .object-body {
     grid-template-columns: 1fr;
-    gap: 36px;
+    display: grid;
+    gap: 20px;
   }
 
-  .apartment-header h1 {
-    font-size: 32px;
+  .object-title-row > p {
+    font-size: 28px;
   }
 }

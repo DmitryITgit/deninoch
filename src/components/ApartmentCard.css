@@ -1,67 +1,86 @@
-.apartment-card {
+.look-card {
   display: block;
   text-decoration: none;
-  color: inherit;
   min-width: 0;
 }
 
-.card-image {
+.look-photo {
+  position: relative;
   overflow: hidden;
-  background: #ddd;
+  background: var(--paper);
 }
 
-.apartment-card img {
+.look-card img {
   width: 100%;
-  height: 380px;
+  height: 420px;
   object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s ease;
 }
 
-.apartment-card:hover img {
+.look-card.is-featured img {
+  height: min(72vh, 680px);
+}
+
+.look-card:hover img {
   transform: scale(1.04);
 }
 
-.card-info {
-  padding: 22px 4px 8px;
+.look-photo span {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  color: var(--ivory);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 11px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.card-address {
-  margin: 0 0 10px;
+.look-card:hover .look-photo span {
+  opacity: 1;
+  transform: none;
+}
+
+.look-meta {
+  padding: 18px 0 8px;
+}
+
+.look-meta p {
+  margin: 0 0 8px;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.apartment-card h2 {
+.look-meta h2 {
   margin: 0;
   font-size: 30px;
-  line-height: 1.15;
-  font-weight: 500;
+  line-height: 1.12;
 }
 
-.apartment-card strong {
+.look-card.is-featured h2 {
+  font-size: clamp(32px, 4vw, 52px);
+}
+
+.look-meta strong {
   display: block;
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 14px;
   font-weight: 500;
   color: var(--gold);
-  letter-spacing: 0.04em;
 }
 
 @media (max-width: 700px) {
-  .apartment-card img {
-    height: 220px;
+  .look-card img,
+  .look-card.is-featured img {
+    height: 260px;
   }
 
-  .apartment-card h2 {
-    font-size: 22px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .apartment-card:hover img {
+  .look-photo span {
+    opacity: 1;
     transform: none;
   }
 }
