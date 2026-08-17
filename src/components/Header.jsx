@@ -1,12 +1,10 @@
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { ChevronLeft } from "lucide-react"
 import { navLinks } from "../data/nav"
 import "./Header.css"
 
 function Header() {
   const location = useLocation()
-  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [menuPath, setMenuPath] = useState(location.pathname)
   const [scrolled, setScrolled] = useState(false)
@@ -34,35 +32,14 @@ function Header() {
     }
   }, [open])
 
-  function goBack() {
-    if (location.pathname.startsWith("/apartments/")) {
-      navigate("/apartments")
-      return
-    }
-    navigate("/")
-  }
-
   return (
     <>
       <header className={`site-header ${solid ? "is-solid" : "is-clear"}`}>
         <div className="site-header-inner">
-          <div className="header-left">
-            {!isHome && (
-              <button
-                type="button"
-                className="header-back"
-                onClick={goBack}
-                aria-label="Назад"
-              >
-                <ChevronLeft size={20} strokeWidth={1.6} />
-                Назад
-              </button>
-            )}
-            <Link className="brand" to="/" onClick={() => setOpen(false)}>
-              <span>День и ночь</span>
-              <small>Ульяновск</small>
-            </Link>
-          </div>
+          <Link className="brand" to="/" onClick={() => setOpen(false)}>
+            <span>День и ночь</span>
+            <small>Ульяновск</small>
+          </Link>
 
           <nav className="desk-nav" aria-label="Основное меню">
             {navLinks.map((item) => (

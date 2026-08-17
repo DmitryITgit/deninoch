@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { MapPin, BedDouble, Bath, Wifi, CookingPot } from "lucide-react"
+import { MapPin, BedDouble, Bath, Wifi, CookingPot, ChevronLeft } from "lucide-react"
 import "./Apartment.css"
 import { getApartmentById } from "../api/apartments"
 import Gallery from "../components/apartment/Gallery"
@@ -40,6 +40,10 @@ function Apartment() {
   return (
     <main className="object-page">
       <header className="wrap object-head">
+        <Link className="object-back" to="/apartments">
+          <ChevronLeft size={18} strokeWidth={1.6} />
+          Назад к квартирам
+        </Link>
         <p className="kicker">
           <MapPin size={14} /> {apartment.address}
         </p>
