@@ -77,50 +77,91 @@
 }
 
 .atmosphere-swap.is-in .atmosphere-tile:nth-child(1) {
-  animation: galleryFromRightA 1.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: galleryEnter 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--swap-delay, 0ms);
 }
 
 .atmosphere-swap.is-in .atmosphere-tile:nth-child(2) {
-  animation: galleryFromRightB 1.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--swap-delay, 0ms) + 90ms);
+  animation: galleryEnter 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--swap-delay, 0ms) + 220ms);
 }
 
-@keyframes galleryFromRightA {
+.atmosphere-swap.is-lucky.is-in .atmosphere-tile:nth-child(1) {
+  z-index: 2;
+  animation: galleryLuckyA 7.5s cubic-bezier(0.45, 0.05, 0.18, 1) both;
+  animation-delay: var(--swap-delay, 0ms);
+}
+
+.atmosphere-swap.is-lucky.is-in .atmosphere-tile:nth-child(2) {
+  animation: galleryLuckyB 7.5s cubic-bezier(0.45, 0.05, 0.18, 1) both;
+  animation-delay: calc(var(--swap-delay, 0ms) + 280ms);
+}
+
+.atmosphere-swap.is-settled .atmosphere-tile,
+.atmosphere-swap.is-settled.is-in .atmosphere-tile:nth-child(1),
+.atmosphere-swap.is-settled.is-in .atmosphere-tile:nth-child(2) {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.atmosphere-swap.is-settled .atmosphere-tile:nth-child(1) {
+  order: 2;
+  margin-top: 72px;
+  z-index: auto;
+}
+
+.atmosphere-swap.is-settled .atmosphere-tile:nth-child(2) {
+  order: 1;
+  margin-top: 0;
+}
+
+@keyframes galleryEnter {
+  from {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes galleryLuckyA {
   0% {
     opacity: 0;
-    transform: translateX(14vw);
+    transform: translateX(10vw);
   }
-  36% {
+  20% {
     opacity: 1;
     transform: translateX(0);
   }
-  58% {
+  46% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
     opacity: 1;
     transform: translateX(calc(100% + 28px)) translateY(72px);
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-  }
 }
 
-@keyframes galleryFromRightB {
+@keyframes galleryLuckyB {
   0% {
     opacity: 0;
-    transform: translateX(18vw);
+    transform: translateX(12vw);
   }
-  36% {
+  20% {
     opacity: 1;
     transform: translateX(0);
   }
-  58% {
+  46% {
     opacity: 1;
-    transform: translateX(calc(-100% - 28px)) translateY(-72px);
+    transform: translateX(0);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) translateY(0);
+    transform: translateX(calc(-100% - 28px)) translateY(-72px);
   }
 }
 
@@ -152,19 +193,28 @@
   }
 
   .atmosphere-swap.is-in .atmosphere-tile:nth-child(1),
-  .atmosphere-swap.is-in .atmosphere-tile:nth-child(2) {
-    animation: galleryFromRightMobile 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .atmosphere-swap.is-in .atmosphere-tile:nth-child(2),
+  .atmosphere-swap.is-lucky.is-in .atmosphere-tile:nth-child(1),
+  .atmosphere-swap.is-lucky.is-in .atmosphere-tile:nth-child(2) {
+    animation: galleryEnterMobile 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
-  .atmosphere-swap.is-in .atmosphere-tile:nth-child(2) {
-    animation-delay: calc(var(--swap-delay, 0ms) + 120ms);
+  .atmosphere-swap.is-in .atmosphere-tile:nth-child(2),
+  .atmosphere-swap.is-lucky.is-in .atmosphere-tile:nth-child(2) {
+    animation-delay: calc(var(--swap-delay, 0ms) + 180ms);
+  }
+
+  .atmosphere-swap.is-settled .atmosphere-tile:nth-child(1),
+  .atmosphere-swap.is-settled .atmosphere-tile:nth-child(2) {
+    order: unset;
+    margin-top: 0;
   }
 }
 
-@keyframes galleryFromRightMobile {
+@keyframes galleryEnterMobile {
   from {
     opacity: 0;
-    transform: translateX(48px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;

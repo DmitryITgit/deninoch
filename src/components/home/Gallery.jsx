@@ -22,6 +22,8 @@ const pairs = [
 
 function SwapPair({ left, right, onOpen, delay = 0 }) {
   const ref = useRef(null)
+  const [lucky] = useState(() => Math.random() < 0.28)
+  const settled = useRef(false)
 
   useEffect(() => {
     const node = ref.current
@@ -41,16 +43,27 @@ function SwapPair({ left, right, onOpen, delay = 0 }) {
     return () => observer.disconnect()
   }, [])
 
+  function finishLuckySwap() {
+    if (!lucky || settled.current) return
+    settled.current = true
+    ref.current?.classList.add("is-settled")
+  }
+
   return (
     <div
-      className="atmosphere-swap"
+      className={`atmosphere-swap${lucky ? " is-lucky" : ""}`}
       ref={ref}
       style={{ "--swap-delay": `${delay}ms` }}
     >
       <button type="button" className="atmosphere-tile" onClick={() => onOpen(left)}>
         <img src={images[left]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
       </button>
-      <button type="button" className="atmosphere-tile" onClick={() => onOpen(right)}>
+      <button
+        type="button"
+        className="atmosphere-tile"
+        onClick={() => onOpen(right)}
+        onAnimationEnd={finishLuckySwap}
+      >
         <img src={images[right]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
       </button>
     </div>
