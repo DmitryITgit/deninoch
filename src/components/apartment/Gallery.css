@@ -1,8 +1,12 @@
 .object-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   padding: 12px 0 0;
+}
+
+.object-gallery.wrap {
+  width: min(1440px, calc(100% - var(--gutter) * 2));
 }
 
 .object-gallery button {
@@ -12,6 +16,7 @@
   cursor: pointer;
   overflow: hidden;
   aspect-ratio: 4 / 3;
+  border-radius: 20px;
 }
 
 .object-gallery img {

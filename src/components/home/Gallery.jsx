@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Lightbox from "../Lightbox"
 import "./Gallery.css"
 
@@ -13,6 +13,50 @@ const images = [
   "/gallery8.jpg"
 ]
 
+const pairs = [
+  [0, 1],
+  [2, 3],
+  [4, 5],
+  [6, 7]
+]
+
+function SwapPair({ left, right, onOpen, delay = 0 }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return undefined
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          node.classList.add("is-in")
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -12% 0px" }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      className="atmosphere-swap"
+      ref={ref}
+      style={{ "--swap-delay": `${delay}ms` }}
+    >
+      <button type="button" className="atmosphere-tile" onClick={() => onOpen(left)}>
+        <img src={images[left]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
+      </button>
+      <button type="button" className="atmosphere-tile" onClick={() => onOpen(right)}>
+        <img src={images[right]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
+      </button>
+    </div>
+  )
+}
+
 function Gallery() {
   const [index, setIndex] = useState(null)
 
@@ -23,39 +67,35 @@ function Gallery() {
         <h2>Атмосфера наших квартир</h2>
       </div>
 
-      <figure className="atmosphere-hero reveal">
-        <button type="button" onClick={() => setIndex(0)}>
-          <img src={images[0]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-          <span>Смотреть</span>
-        </button>
-        <figcaption>Свет, тишина и порядок — до вашего приезда.</figcaption>
-      </figure>
-
-      <div className="wrap atmosphere-split reveal">
+      <div className="wrap atmosphere-lead reveal reveal-from-right">
         <p>Пространства, собранные для отдыха и работы. Без случайных деталей.</p>
-        <button type="button" onClick={() => setIndex(1)}>
-          <img src={images[1]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-        </button>
       </div>
 
-      <div className="atmosphere-pair wrap reveal">
-        <button type="button" onClick={() => setIndex(2)}>
-          <img src={images[2]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-        </button>
-        <button type="button" className="shift" onClick={() => setIndex(3)}>
-          <img src={images[3]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-        </button>
+      <div className="atmosphere-stage wrap">
+        {pairs.slice(0, 2).map(([left, right], i) => (
+          <SwapPair
+            key={`${left}-${right}`}
+            left={left}
+            right={right}
+            onOpen={setIndex}
+            delay={i * 80}
+          />
+        ))}
       </div>
 
-      <p className="atmosphere-note wrap reveal">
+      <p className="atmosphere-note wrap reveal reveal-from-right">
         Каждая квартира готовится заново. Вы входите в чистое, готовое место.
       </p>
 
-      <div className="atmosphere-mosaic wrap reveal">
-        {images.slice(4).map((src, i) => (
-          <button type="button" key={src} onClick={() => setIndex(i + 4)}>
-            <img src={src} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-          </button>
+      <div className="atmosphere-stage wrap">
+        {pairs.slice(2).map(([left, right], i) => (
+          <SwapPair
+            key={`${left}-${right}`}
+            left={left}
+            right={right}
+            onOpen={setIndex}
+            delay={i * 80}
+          />
         ))}
       </div>
 
