@@ -89,7 +89,7 @@ function Header() {
           ))}
         </nav>
         <a className="btn btn-fill" href="tel:+79539836853">
-          +7 (953) 983-68-53
+          Позвонить
         </a>
       </div>
     </>
