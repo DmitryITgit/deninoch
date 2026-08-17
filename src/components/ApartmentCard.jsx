@@ -12,7 +12,11 @@ function ApartmentCard({ apartment, index = 0 }) {
   const number = String(index + 1).padStart(2, "0")
 
   return (
-    <Link to={`/apartments/${apartment.id}`} className="look-card">
+    <Link
+      to={`/apartments/${apartment.id}`}
+      className="look-card"
+      style={{ "--stagger": index }}
+    >
       <div className="look-photo">
         <img src={main} alt={apartment.title} loading="lazy" decoding="async" />
         {extra && (

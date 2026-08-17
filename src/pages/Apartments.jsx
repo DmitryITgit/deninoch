@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react"
 import ApartmentCard from "../components/ApartmentCard"
 import { getApartments } from "../api/apartments"
-import useReveal from "../hooks/useReveal"
 import "./Apartments.css"
 
 function Apartments() {
   const [apartments, setApartments] = useState([])
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(true)
-
-  useReveal()
 
   useEffect(() => {
     async function load() {
@@ -42,7 +39,15 @@ function Apartments() {
       </header>
 
       {loading ? (
-        <p className="wrap catalog-empty">Загрузка...</p>
+        <div className="wrap catalog-grid" aria-hidden="true">
+          {Array.from({ length: 8 }, (_, index) => (
+            <div
+              key={index}
+              className="look-skeleton"
+              style={{ "--stagger": index }}
+            />
+          ))}
+        </div>
       ) : filtered.length > 0 ? (
         <div className="wrap catalog-grid">
           {filtered.map((item, index) => (

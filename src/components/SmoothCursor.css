@@ -1,0 +1,60 @@
+.smooth-cursor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 80;
+}
+
+.smooth-cursor-ring,
+.smooth-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform;
+}
+
+.smooth-cursor-ring.is-on,
+.smooth-cursor-dot.is-on {
+  opacity: 1;
+}
+
+.smooth-cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gold);
+  transition: opacity 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.smooth-cursor-ring.is-hover {
+  border-color: var(--ink);
+  background: rgba(176, 137, 77, 0.08);
+}
+
+.smooth-cursor-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+}
+
+html.has-smooth-cursor,
+html.has-smooth-cursor * {
+  cursor: none !important;
+}
+
+html.has-smooth-cursor input,
+html.has-smooth-cursor textarea,
+html.has-smooth-cursor select {
+  cursor: text !important;
+}
+
+html.has-smooth-cursor iframe {
+  cursor: auto !important;
+}
+
+@media (pointer: coarse) {
+  .smooth-cursor {
+    display: none;
+  }
+}

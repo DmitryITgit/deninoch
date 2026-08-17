@@ -32,6 +32,7 @@ function Lightbox({ photos, index, onClose, onPrev, onNext }) {
   return (
     <div
       className="lightbox"
+      data-lenis-prevent
       onClick={onClose}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
