@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import Lightbox from "../Lightbox"
 import "./Gallery.css"
 
 const images = [
@@ -20,7 +19,7 @@ const pairs = [
   [6, 7]
 ]
 
-function SwapPair({ left, right, onOpen, delay = 0 }) {
+function SwapPair({ left, right, delay = 0 }) {
   const ref = useRef(null)
   const [lucky] = useState(() => Math.random() < 0.28)
   const settled = useRef(false)
@@ -55,24 +54,17 @@ function SwapPair({ left, right, onOpen, delay = 0 }) {
       ref={ref}
       style={{ "--swap-delay": `${delay}ms` }}
     >
-      <button type="button" className="atmosphere-tile" onClick={() => onOpen(left)}>
+      <figure className="atmosphere-tile">
         <img src={images[left]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-      </button>
-      <button
-        type="button"
-        className="atmosphere-tile"
-        onClick={() => onOpen(right)}
-        onAnimationEnd={finishLuckySwap}
-      >
+      </figure>
+      <figure className="atmosphere-tile" onAnimationEnd={finishLuckySwap}>
         <img src={images[right]} alt="Интерьер квартиры" loading="lazy" decoding="async" />
-      </button>
+      </figure>
     </div>
   )
 }
 
 function Gallery() {
-  const [index, setIndex] = useState(null)
-
   return (
     <section className="atmosphere">
       <div className="wrap atmosphere-head reveal">
@@ -86,13 +78,7 @@ function Gallery() {
 
       <div className="atmosphere-stage wrap">
         {pairs.slice(0, 2).map(([left, right], i) => (
-          <SwapPair
-            key={`${left}-${right}`}
-            left={left}
-            right={right}
-            onOpen={setIndex}
-            delay={i * 80}
-          />
+          <SwapPair key={`${left}-${right}`} left={left} right={right} delay={i * 80} />
         ))}
       </div>
 
@@ -102,25 +88,9 @@ function Gallery() {
 
       <div className="atmosphere-stage wrap">
         {pairs.slice(2).map(([left, right], i) => (
-          <SwapPair
-            key={`${left}-${right}`}
-            left={left}
-            right={right}
-            onOpen={setIndex}
-            delay={i * 80}
-          />
+          <SwapPair key={`${left}-${right}`} left={left} right={right} delay={i * 80} />
         ))}
       </div>
-
-      {index !== null && (
-        <Lightbox
-          photos={images}
-          index={index}
-          onClose={() => setIndex(null)}
-          onPrev={() => setIndex((index - 1 + images.length) % images.length)}
-          onNext={() => setIndex((index + 1) % images.length)}
-        />
-      )}
     </section>
   )
 }
