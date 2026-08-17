@@ -1,0 +1,56 @@
+.object-map {
+  padding: 56px 0 0;
+}
+
+.object-map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.object-map h2 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1;
+}
+
+.object-map-head a {
+  flex-shrink: 0;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  border-bottom: 1px solid transparent;
+}
+
+.object-map-head a:hover {
+  border-bottom-color: var(--gold);
+}
+
+.object-map-frame {
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--paper);
+}
+
+.object-map-frame iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .object-map-head {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .object-map-frame iframe {
+    height: 280px;
+  }
+}

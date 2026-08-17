@@ -6,6 +6,7 @@ import { getApartmentById } from "../api/apartments"
 import Gallery from "../components/apartment/Gallery"
 import Booking from "../components/apartment/Booking"
 import Instructions from "../components/apartment/Instructions"
+import LocationMap from "../components/apartment/LocationMap"
 import Lightbox from "../components/Lightbox"
 
 function Apartment() {
@@ -67,6 +68,7 @@ function Apartment() {
       </section>
 
       <Instructions instructions={apartment.instructions} />
+      <LocationMap address={apartment.address} />
       <Booking price={apartment.price} />
 
       {light !== null && count > 0 && (
